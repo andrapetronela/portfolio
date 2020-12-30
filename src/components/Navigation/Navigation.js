@@ -21,7 +21,11 @@ export default Navigation
 
 const Container = styled.div``
 
-const Sticky = styled.div``
+const Sticky = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+`
 
 const Logo = styled.img``
 
