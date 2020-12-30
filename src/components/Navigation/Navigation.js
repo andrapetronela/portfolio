@@ -11,7 +11,6 @@ const Navigation = () => {
         <Menu>
           <Line />
           <Line />
-          <Line />
         </Menu>
       </Sticky>
     </Container>
