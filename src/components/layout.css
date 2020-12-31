@@ -16,11 +16,7 @@ body {
 
 body,
 html {
-  /* font-family: Roboto, sans-serif; */
   font-family: semplicitapro, sans-serif;
-
-  font-weight: 400;
-
   font-style: normal;
   -ms-text-size-adjust: none;
   -moz-text-size-adjust: none;
@@ -30,12 +26,12 @@ html {
 
 html {
   /* Firefox scroll bar */
-  scrollbar-color: #c4edff #000;
+  scrollbar-color: #aa857f #1a1312;
 }
 body {
   font-size: 1.6rem;
   line-height: 2.6rem;
-  color: #000000;
+  color: #221917;
   background-color: #fafafc;
 }
 
@@ -94,5 +90,104 @@ html {
 @media (max-width: 600px) {
   html {
     font-size: 43.75%; /* 1rem = 7px, 7/16 = 43.75% */
+  }
+}
+
+h1 {
+  font-size: 17rem;
+  line-height: 21rem;
+}
+
+h2 {
+  font-size: 8rem;
+  line-height: 9.6rem;
+}
+
+h3 {
+  font-size: 4rem;
+  line-height: 5.6rem;
+}
+
+h4 {
+  font-size: 3.4rem;
+  line-height: 5rem;
+}
+
+h5 {
+  font-size: 2.4rem;
+  line-height: 4rem;
+}
+
+h6 {
+  font-size: 2rem;
+  line-height: 3.6rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+}
+
+.small {
+  font-size: 1.4rem;
+  line-height: 3rem;
+}
+
+.legal {
+  font-size: 1.2rem;
+  line-height: 2.8rem;
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+p::selection,
+.small::selection,
+.legal::selection,
+b::selection {
+  color: #aa857f;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 60px;
+    line-height: 76px;
+  }
+  h2 {
+    font-size: 50px;
+    line-height: 66px;
+  }
+  h3 {
+    font-size: 40px;
+    line-height: 56px;
+  }
+  h4 {
+    font-size: 30px;
+    line-height: 46px;
+  }
+  h5 {
+    font-size: 20px;
+    line-height: 36px;
+  }
+  h6 {
+    font-size: 18px;
+    line-height: 34px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .small {
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  .legal {
+    font-size: 12px;
+    line-height: 28px;
   }
 }
