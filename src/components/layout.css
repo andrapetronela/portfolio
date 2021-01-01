@@ -95,7 +95,7 @@ html {
 
 h1 {
   font-size: 17rem;
-  line-height: 21rem;
+  line-height: 18rem;
 }
 
 h2 {
@@ -138,6 +138,16 @@ p {
   line-height: 2.8rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: semplicitapro, sans-serif;
+  font-weight: 400;
+}
+
 h1::selection,
 h2::selection,
 h3::selection,
@@ -147,18 +157,19 @@ h6::selection,
 p::selection,
 .small::selection,
 .legal::selection,
-b::selection {
+b::selection,
+li::selection {
   color: #aa857f;
 }
 
 @media (max-width: 1024px) {
   h1 {
-    font-size: 60px;
-    line-height: 76px;
+    font-size: 55px;
+    line-height: 71px;
   }
   h2 {
-    font-size: 50px;
-    line-height: 66px;
+    font-size: 45px;
+    line-height: 61px;
   }
   h3 {
     font-size: 40px;

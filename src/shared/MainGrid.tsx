@@ -1,15 +1,23 @@
 import React from "react"
 import styled from "styled-components"
 
-const MainGrid = ({ children }) => {
-  return <Container>{children}</Container>
+interface IGrid {
+  left?: boolean
+  children: any
+}
+
+const MainGrid = ({ children, left }: IGrid) => {
+  return <Container left={left}>{children}</Container>
 }
 
 export default MainGrid
 
-const Container = styled.div`
+interface ICont {
+  left?: boolean
+}
+const Container = styled.div<ICont>`
   display: flex;
-  justify-content: center;
+  justify-content: ${props => (props.left ? "left" : "center")};
   width: 100%;
   max-width: 1400px;
   padding: 0 20px;
