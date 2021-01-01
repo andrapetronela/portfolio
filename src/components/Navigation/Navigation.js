@@ -67,8 +67,7 @@ export default Navigation
 
 const Container = styled.div`
   position: relative;
-  margin-bottom: 60px;
-  background: yellow;
+  margin-bottom: 85px;
 `
 
 const Sticky = styled.div`
@@ -96,18 +95,18 @@ const Menu = styled.div`
 
 const Line = styled.img`
   transform-origin: center center;
-  transition: all 0.3s ease 0s;
+  transition: all 0.5s ease 0s;
   transform: ${props =>
     props.open
-      ? "translate3d(30px, 20px, 0px) rotate(45deg)"
-      : "translate3d(10px, 15px, 0px) rotate(0deg);"};
+      ? "translate3d(20px, 15px, 0px) rotate(45deg)"
+      : "translate3d(10px, 5px, 0px) rotate(0deg);"};
 `
 
 const LineSecond = styled(Line)`
   transform: ${props =>
     props.open
-      ? "translate3d(-10px, 20px, 0px) rotate(-45deg);"
-      : "translate3d(0px, 25px, 0px) rotate(0deg);"};
+      ? "translate3d(-20px, 15px, 0px) rotate(-45deg);"
+      : "translate3d(0px, 15px, 0px) rotate(0deg);"};
 `
 
 const BurgerMenu = styled.div`
@@ -148,7 +147,7 @@ const BurgerMenu = styled.div`
     bottom: -1px;
     left: 0;
     background: ${theme.text.main};
-    transition: ease-out 0.3s;
+    transition: ease-out 0.5s;
     margin: 0 auto;
     border-radius: 16px;
   }
@@ -159,15 +158,18 @@ const BurgerMenu = styled.div`
   }
 `
 const TopNav = styled.div`
-  background: pink;
   width: 70rem;
   position: absolute;
-  top: 40px;
+  top: 35px;
   margin: 0 auto;
 `
 const TopNavInner = styled.div`
-  display: ${props => (props.open ? "none" : "flex")};
   justify-content: flex-end;
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: ${props => (props.open ? "none" : "flex")};
+  }
   & .top-item,
   & .top-item:link,
   & .top-item:visited {
@@ -182,7 +184,7 @@ const TopNavInner = styled.div`
   & .top-item::after {
     position: absolute;
     content: " ";
-    height: 3px;
+    height: 2px;
     width: 0%;
     bottom: -1px;
     left: 0;
