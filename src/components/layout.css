@@ -94,8 +94,8 @@ html {
 }
 
 h1 {
-  font-size: 17rem;
-  line-height: 18rem;
+  font-size: 14rem;
+  line-height: 20rem;
 }
 
 h2 {
@@ -200,5 +200,31 @@ li::selection {
   .legal {
     font-size: 12px;
     line-height: 28px;
+  }
+}
+
+@keyframes floatProcessSquare {
+  0% {
+    transform: translate3d(0px, 170px, 0) rotate(-20deg);
+  }
+
+  50% {
+    transform: translate3d(0px, 18px, 30px) rotate(27deg);
+  }
+  100% {
+    transform: translate3d(0px, 170px, 0) rotate(-20deg);
+  }
+}
+
+@keyframes floatProcessSquareMobile {
+  0% {
+    transform: translate3d(170px, 0, 0) rotate(-20deg);
+  }
+
+  50% {
+    transform: translate3d(18px, 0, 30px) rotate(27deg);
+  }
+  100% {
+    transform: translate3d(170px, 0px, 0) rotate(-20deg);
   }
 }

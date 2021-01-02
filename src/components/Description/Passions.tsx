@@ -3,7 +3,10 @@ import MainGrid from "../../shared/MainGrid"
 import styled from "styled-components"
 import theme from "../../shared/theme"
 
-const Description = ({ isVisible }) => {
+interface IPass {
+  isVisible?: boolean
+}
+const Passions = ({ isVisible }: IPass) => {
   return (
     <MainGrid>
       <Container>
@@ -22,24 +25,34 @@ const Description = ({ isVisible }) => {
   )
 }
 
-export default Description
+export default Passions
 
 const Container = styled.div`
   position: relative;
   padding: 20rem 0 15rem;
+  width: 100%;
   display: flex;
   align-items: flex-start;
-  width: 100%;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `
 
 interface ISticky {
   isVisible?: boolean
 }
 const Sticky = styled.div<ISticky>`
-  position: sticky;
-  left: 0;
-  bottom: 0;
-  top: 100px;
+  position: relative;
+  margin-bottom: 10rem;
+  @media (min-width: 768px) {
+    margin-bottom: 0rem;
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    top: 100px;
+  }
 
   &::after {
     position: absolute;

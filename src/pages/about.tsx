@@ -9,30 +9,22 @@ import Navigation from "../components/Navigation/Navigation"
 import HomepageHeader from "../components/Header/HomepageHeader"
 import Hello from "../components/Hello/Hello"
 import Description from "../components/Description/Description"
-import ProcessAnimation from "../components/Process/ProcessAnimation"
 import Passions from "../components/Description/Passions"
 
-const IndexPage = () => (
+const AboutPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="About" />
     <Navigation />
-    <HomepageHeader />
     <Hello />
     <TrackVisibility offset={400}>
       <Description />
     </TrackVisibility>
-    <ProcessAnimation />
     <TrackVisibility offset={600}>
       <Passions />
     </TrackVisibility>
     <HomepageHeader />
     <HomepageHeader />
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
   </Layout>
 )
 
-export default IndexPage
+export default AboutPage
