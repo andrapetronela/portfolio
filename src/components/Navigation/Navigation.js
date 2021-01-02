@@ -13,7 +13,9 @@ const Navigation = () => {
         <Sticky>
           <MainGrid>
             <Inner>
-              <Logo src={logo} alt="Logo - Andra" />
+              <a href="/">
+                <Logo src={logo} alt="Logo - Andra" />
+              </a>
               <Menu onClick={() => openMenu(!menuOpen)}>
                 <Line src={line} open={menuOpen} />
                 <LineSecond src={line} open={menuOpen} />
@@ -87,7 +89,11 @@ const Inner = styled.div`
   justify-content: space-between;
 `
 
-const Logo = styled.img``
+const Logo = styled.img`
+  &::selection {
+    color: #aa857f;
+  }
+`
 
 const Menu = styled.div`
   cursor: pointer;
@@ -96,16 +102,17 @@ const Menu = styled.div`
 const Line = styled.img`
   transform-origin: center center;
   transition: all 0.5s ease 0s;
+  user-select: none;
   transform: ${props =>
     props.open
-      ? "translate3d(20px, 15px, 0px) rotate(45deg)"
-      : "translate3d(10px, 5px, 0px) rotate(0deg);"};
+      ? "translate3d(35px, 10px, 0px) rotate(45deg)"
+      : "translate3d(25px, 5px, 0px) rotate(0deg);"};
 `
 
 const LineSecond = styled(Line)`
   transform: ${props =>
     props.open
-      ? "translate3d(-20px, 15px, 0px) rotate(-45deg);"
+      ? "translate3d(-8px, 10px, 0px) rotate(-45deg);"
       : "translate3d(0px, 15px, 0px) rotate(0deg);"};
 `
 
@@ -137,6 +144,9 @@ const BurgerMenu = styled.div`
     cursor: pointer;
     text-decoration: none;
     position: relative;
+    &::selection {
+      color: #aa857f;
+    }
   }
 
   & .menu-item::after {
@@ -179,6 +189,9 @@ const TopNavInner = styled.div`
     position: relative;
     text-decoration: none;
     color: ${theme.text.main};
+    &::selection {
+      color: #aa857f;
+    }
   }
 
   & .top-item::after {

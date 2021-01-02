@@ -17,7 +17,7 @@ const Hello = () => {
         <Figure>
           <Controller>
             <div className="section" />
-            <Scene indicators={true} duration="100%" offset={-250}>
+            <Scene duration="100%" offset={-250}>
               <Timeline wrapper={<div className="parallax" />}>
                 <Tween
                   position="0"
@@ -47,6 +47,9 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 1100px;
+  &::selection {
+    color: #aa857f;
+  }
   & .section {
     margin-left: auto;
   }

@@ -2,8 +2,12 @@ import React from "react"
 import MainGrid from "../../shared/MainGrid"
 import styled from "styled-components"
 import theme from "../../shared/theme"
+import Button from "../Button"
 
-const Description = ({ isVisible }) => {
+interface IDesc {
+  isVisible?: boolean
+}
+const Description = ({ isVisible }: IDesc) => {
   return (
     <MainGrid>
       <Container>
@@ -22,6 +26,7 @@ const Description = ({ isVisible }) => {
           <b>Front End developer</b> with a keen eye for <b>aesthetics</b>,
           eager to discover the latest <b>typography</b> trends, <b>colour</b>{" "}
           schemes and <b>motion graphics</b>.
+          <Button text="Read more" marginTop="40px" href="/about" />
         </Col>
       </Container>
     </MainGrid>
@@ -36,9 +41,9 @@ const Container = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-
   @media (min-width: 768px) {
     flex-direction: row;
+    justify-content: space-between;
   }
 `
 
@@ -70,12 +75,15 @@ const Sticky = styled.div<ISticky>`
   }
 
   @media (min-width: 768px) {
-    width: 50%;
+    width: 48%;
   }
 `
 const Col = styled.div`
   @media (min-width: 768px) {
     padding-top: 50rem;
-    width: 50%;
+    width: 40%;
+  }
+  &::selection {
+    color: #aa857f;
   }
 `
