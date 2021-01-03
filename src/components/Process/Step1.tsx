@@ -3,6 +3,9 @@ import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
 import theme from "../../shared/theme"
+import a1 from "../../images/animation/a1.svg"
+import a2 from "../../images/animation/a2.svg"
+import a3 from "../../images/animation/a3.svg"
 
 const TweenStyled = styled.div`
   position: relative;
@@ -22,9 +25,8 @@ const TweenStyled = styled.div`
   }
 
   .tween {
-    width: 10px;
-    height: 10px;
-    background-color: ${theme.text.main};
+    width: 20px;
+    height: 20px;
     position: relative;
     transition: all 0.5s ease;
     animation: floatProcessSquareMobile 8s ease-in-out forwards infinite;
@@ -34,9 +36,8 @@ const TweenStyled = styled.div`
   }
   .square-1,
   .square-2 {
-    width: 10px;
-    height: 10px;
-    background-color: ${theme.text.main};
+    width: 20px;
+    height: 20px;
     position: relative;
     transition: all 0.5s ease;
     animation: floatProcessSquareMobile 6s ease-in-out forwards infinite 0.5s;
@@ -56,7 +57,7 @@ const TweenStyled = styled.div`
 const Step1 = () => (
   <TweenStyled>
     <div id="trigger" />
-    <div className="square-1" />
+    <img src={a1} className="square-1" />
 
     <Controller>
       <Scene triggerElement="#trigger" duration={700}>
@@ -72,11 +73,11 @@ const Step1 = () => (
             totalProgress={progress}
             paused
           >
-            <div className="tween" />
+            <img src={a2} className="tween" />
           </Tween>
         )}
       </Scene>
-      <div className="square-2" />
+      <img src={a3} className="square-2" />
     </Controller>
     <Text>
       {" "}
@@ -100,7 +101,7 @@ const Text = styled.div`
   @media (min-width: 768px) {
     width: 40%;
     position: sticky;
-    top: 9rem;
+    top: 100px;
     left: 0;
   }
   & h5 {

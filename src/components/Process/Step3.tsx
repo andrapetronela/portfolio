@@ -2,11 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
-import a1 from "../../images/a-cap.svg"
-import n from "../../images/n.svg"
-import d from "../../images/d.svg"
-import r from "../../images/r.svg"
-import a2 from "../../images/a-low.svg"
+import a1 from "../../images/animation/a-cap.svg"
+import n from "../../images/animation/n.svg"
+import d from "../../images/animation/d.svg"
+import r from "../../images/animation/r.svg"
+import a2 from "../../images/animation/a-low.svg"
 
 const TweenStyled = styled.div`
   position: relative;
@@ -55,12 +55,12 @@ const Step3 = () => (
     <div id="name-anim" />
 
     <Controller>
-      <Scene triggerElement="#name-anim" duration={800} offset={100}>
+      <Scene triggerElement="#name-anim" duration={800} offset={20}>
         {progress => (
           <Tween
             to={{
               top: "63.2%",
-              left: "0px",
+              left: "80px",
               rotation: -360,
               opacity: 1,
             }}
@@ -72,18 +72,13 @@ const Step3 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene
-        triggerElement="#name-anim"
-        duration={300}
-        pin={false}
-        offset={100}
-      >
+      <Scene triggerElement="#name-anim" duration={300} pin={false} offset={20}>
         {progress => (
           <Tween
             to={{
               css: {
                 top: "70%",
-                left: "95px",
+                left: "175px",
                 rotation: 360,
                 opacity: 1,
               },
@@ -96,17 +91,12 @@ const Step3 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene
-        triggerElement="#name-anim"
-        duration={400}
-        pin={false}
-        offset={100}
-      >
+      <Scene triggerElement="#name-anim" duration={400} pin={false} offset={20}>
         {progress => (
           <Tween
             to={{
               css: {
-                left: "140px",
+                left: "220px",
                 top: "70%",
                 rotation: -360,
                 opacity: 1,
@@ -120,17 +110,12 @@ const Step3 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene
-        triggerElement="#name-anim"
-        duration={700}
-        pin={false}
-        offset={100}
-      >
+      <Scene triggerElement="#name-anim" duration={700} pin={false} offset={20}>
         {progress => (
           <Tween
             to={{
               css: {
-                left: "180px",
+                left: "260px",
                 top: "70%",
                 rotation: 360,
                 opacity: 1,
@@ -144,17 +129,12 @@ const Step3 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene
-        triggerElement="#name-anim"
-        duration={450}
-        pin={false}
-        offset={100}
-      >
+      <Scene triggerElement="#name-anim" duration={450} pin={false} offset={20}>
         {progress => (
           <Tween
             to={{
               css: {
-                left: "220px",
+                left: "300px",
                 top: "70%",
                 rotation: -360,
                 opacity: 1,
@@ -191,7 +171,7 @@ const Text = styled.div`
   @media (min-width: 768px) {
     width: 40%;
     position: sticky;
-    top: 9rem;
+    top: 100px;
     left: 0;
   }
   & h5 {

@@ -94,23 +94,23 @@ html {
 }
 
 h1 {
-  font-size: 14rem;
-  line-height: 20rem;
+  font-size: 4rem;
+  line-height: 6rem;
 }
 
 h2 {
-  font-size: 8rem;
-  line-height: 9.6rem;
+  font-size: 3.2rem;
+  line-height: 5rem;
 }
 
 h3 {
-  font-size: 4rem;
-  line-height: 5.6rem;
+  font-size: 3rem;
+  line-height: 4.6rem;
 }
 
 h4 {
-  font-size: 3.4rem;
-  line-height: 5rem;
+  font-size: 2.8rem;
+  line-height: 4.4rem;
 }
 
 h5 {
@@ -164,24 +164,24 @@ li::selection {
 
 @media (max-width: 1024px) {
   h1 {
-    font-size: 55px;
-    line-height: 71px;
+    font-size: 4.5rem;
+    line-height: 6.8rem;
   }
   h2 {
-    font-size: 45px;
-    line-height: 61px;
+    font-size: 3.8rem;
+    line-height: 5.8rem;
   }
   h3 {
-    font-size: 40px;
-    line-height: 56px;
-  }
-  h4 {
     font-size: 30px;
     line-height: 46px;
   }
+  h4 {
+    font-size: 26px;
+    line-height: 42px;
+  }
   h5 {
-    font-size: 20px;
-    line-height: 36px;
+    font-size: 22px;
+    line-height: 38px;
   }
   h6 {
     font-size: 18px;
@@ -226,5 +226,27 @@ li::selection {
   }
   100% {
     transform: translate3d(170px, 0px, 0) rotate(-20deg);
+  }
+}
+
+@keyframes movebrickhp {
+  0% {
+    transform: translateX(-105%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(105%);
+    opacity: 1;
+  }
+}
+
+@keyframes movebrickhpright {
+  0% {
+    transform: translateX(105%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-105%);
+    opacity: 1;
   }
 }
