@@ -11,6 +11,7 @@ import Hello from "../components/Hello/Hello"
 import Description from "../components/Description/Description"
 import ProcessAnimation from "../components/Process/ProcessAnimation"
 import Passions from "../components/Description/Passions"
+import HpGridProjects from "../components/Grids/HpGridProjects"
 
 const IndexPage = () => (
   <Layout>
@@ -25,13 +26,7 @@ const IndexPage = () => (
     <TrackVisibility offset={600}>
       <Passions />
     </TrackVisibility>
-    <HomepageHeader />
-    <HomepageHeader />
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <HpGridProjects />
   </Layout>
 )
 

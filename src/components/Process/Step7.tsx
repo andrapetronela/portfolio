@@ -2,7 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
-import logo from "../../images/animation/review.svg"
+import mac from "../../images/animation/mac.svg"
+import launch from "../../images/animation/launch.svg"
 
 const TweenStyled = styled.div`
   position: relative;
@@ -22,38 +23,60 @@ const TweenStyled = styled.div`
 
   .letter {
     position: absolute;
-    top: 40%;
-    left: 0%;
-    width: 0px;
-    height: 0px;
+    top: 100%;
+    left: 30px;
+    opacity: 0;
     transition: all 1s ease;
+    width: 250px;
+  }
+
+  .mac {
+    left: 30px;
+    top: 0;
   }
 `
 
-const Step4 = () => (
+const Step7 = () => (
   <TweenStyled>
-    <div id="logo-anim" />
+    <div id="launch-anim" />
 
     <Controller>
-      <Scene triggerElement="#logo-anim" duration={400} offset={100}>
+      <Scene triggerElement="#launch-anim" duration={400} offset={100}>
         {progress => (
           <Tween
             to={{
-              width: "32%",
-              height: "100px",
+              top: "20%",
+              left: "60px",
+              opacity: "1",
             }}
             ease="Strong.easeOut"
             totalProgress={progress}
             paused
           >
-            <img src={logo} className="letter a1" />
+            <img src={mac} className="letter mac" />
+          </Tween>
+        )}
+      </Scene>
+      <Scene triggerElement="#launch-anim" duration={400} offset={100}>
+        {progress => (
+          <Tween
+            to={{
+              top: "24%",
+              left: "60px",
+              opacity: "1",
+            }}
+            ease="Strong.easeOut"
+            totalProgress={progress}
+            paused
+          >
+            <img src={launch} className="letter launch" />
           </Tween>
         )}
       </Scene>
     </Controller>
     <Text>
       {" "}
-      <h5>Review</h5>
+      <h5>Lauch</h5>
       <p>
         Either you need a <b>website</b> for your business, or you want to give
         your old website a <b>modern feeling</b>, the first step in the process
@@ -65,7 +88,7 @@ const Step4 = () => (
   </TweenStyled>
 )
 
-export default Step4
+export default Step7
 
 const Text = styled.div`
   width: 100%;

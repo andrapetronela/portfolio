@@ -12,9 +12,9 @@ const Description = ({ isVisible }: IDesc) => {
     <MainGrid>
       <Container>
         <Sticky isVisible={isVisible}>
-          <h3>
+          <h2>
             I am delighted to have <b>you</b> here.
-          </h3>
+          </h2>
           <h4>
             I hope you will enjoy your <b>journey</b>.
           </h4>

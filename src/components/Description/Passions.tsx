@@ -11,14 +11,14 @@ const Passions = ({ isVisible }: IPass) => {
     <MainGrid>
       <Container>
         <Sticky isVisible={isVisible}>
-          <h3>Passions</h3>
+          <h2>Passions</h2>
         </Sticky>
         <Col>
-          <li>front end dev</li>
-          <li>animations</li>
-          <li>logo design</li>
-          <li>brand identity</li>
-          <li>ui - ux design</li>
+          <h3>front end dev</h3>
+          <h3>animations</h3>
+          <h3>logo design</h3>
+          <h3>brand identity</h3>
+          <h3>ui - ux design</h3>
         </Col>
       </Container>
     </MainGrid>
@@ -72,19 +72,8 @@ const Sticky = styled.div<ISticky>`
   }
 `
 const Col = styled.ul`
-  & li {
-    list-style-type: none;
-    font-size: 45px;
-    line-height: 61px;
-
-    @media (min-width: 1024px) {
-      font-size: 8rem;
-      line-height: 9.6rem;
-    }
-  }
-
   @media (min-width: 768px) {
-    padding-top: 30rem;
-    width: 50%;
+    padding-top: 50rem;
+    width: 40%;
   }
 `

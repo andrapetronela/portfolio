@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
-import logo from "../../images/animation/review.svg"
+import testing from "../../images/animation/testing.svg"
 
 const TweenStyled = styled.div`
   position: relative;
@@ -22,38 +22,41 @@ const TweenStyled = styled.div`
 
   .letter {
     position: absolute;
-    top: 40%;
-    left: 0%;
-    width: 0px;
-    height: 0px;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
     transition: all 1s ease;
+    width: 0;
+    transform-origin: center;
   }
 `
 
-const Step4 = () => (
+const Step6 = () => (
   <TweenStyled>
-    <div id="logo-anim" />
+    <div id="testing-anim" />
 
     <Controller>
-      <Scene triggerElement="#logo-anim" duration={400} offset={100}>
+      <Scene triggerElement="#testing-anim" duration={400} offset={100}>
         {progress => (
           <Tween
             to={{
-              width: "32%",
-              height: "100px",
+              top: "20%",
+              left: "200px",
+              opacity: "1",
+              width: "180px",
             }}
             ease="Strong.easeOut"
             totalProgress={progress}
             paused
           >
-            <img src={logo} className="letter a1" />
+            <img src={testing} className="letter testing" />
           </Tween>
         )}
       </Scene>
     </Controller>
     <Text>
       {" "}
-      <h5>Review</h5>
+      <h5>Testing</h5>
       <p>
         Either you need a <b>website</b> for your business, or you want to give
         your old website a <b>modern feeling</b>, the first step in the process
@@ -65,7 +68,7 @@ const Step4 = () => (
   </TweenStyled>
 )
 
-export default Step4
+export default Step6
 
 const Text = styled.div`
   width: 100%;

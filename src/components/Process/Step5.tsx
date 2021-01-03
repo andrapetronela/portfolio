@@ -2,9 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
-import a1 from "../../images/animation/a1.svg"
-import a2 from "../../images/animation/a2.svg"
-import a3 from "../../images/animation/a3.svg"
+import logo from "../../images/logo.svg"
+import text from "../../images/animation/step5-text.svg"
+import anim from "../../images/animation/step5-anim.svg"
+import hello from "../../images/animation/step5-hello.svg"
 
 const TweenStyled = styled.div`
   position: relative;
@@ -25,101 +26,101 @@ const TweenStyled = styled.div`
   .letter {
     position: absolute;
     top: 0;
-    left: 20px;
-    transition: all 0.8s ease;
-    width: 0px;
-    height: 0px;
+    left: 60px;
+    transition: all 1s ease;
+    transform: scale(0);
+    opacity: 0;
   }
 
-  .a2 {
-    left: 120px;
+  .text {
+    left: -400px;
+    transform: scale(0);
   }
-  .a3 {
-    top: 50%;
-    left: 0;
+  .anim {
+    left: 320px;
+    transform: scale(0);
+  }
+
+  .hello {
+    top: 120%;
+    left: 100px;
   }
 `
 
-const Step2 = () => (
+const Step5 = () => (
   <TweenStyled>
-    <div id="letters-anim" />
+    <div id="dev-anim" />
 
     <Controller>
-      <Scene triggerElement="#letters-anim" duration={350}>
+      <Scene triggerElement="#dev-anim" duration={200} offset={100}>
         {progress => (
           <Tween
             to={{
-              top: "75%",
-              left: "250px",
-              rotation: -360,
-              width: "80px",
-              height: "80px",
+              top: "10%",
+              transform: "scale(1)",
+              opacity: "1",
             }}
             ease="Strong.easeOut"
             totalProgress={progress}
             paused
           >
-            <img src={a1} className="letter a1" />
+            <img src={logo} className="letter logo" />
           </Tween>
         )}
       </Scene>
-      <Scene triggerElement="#letters-anim" duration={500} pin={false}>
+      <Scene triggerElement="#dev-anim" duration={200} offset={100}>
         {progress => (
           <Tween
-            from={{
-              css: {
-                left: "120px",
-                rotation: -360,
-              },
-              ease: "Strong.easeOut",
-            }}
             to={{
-              css: {
-                left: "250px",
-                rotation: -180,
-                width: "105px",
-                height: "105px",
-              },
-              ease: "Strong.easeOut",
+              top: "30%",
+              left: "60px",
+              transform: "scale(1)",
+              opacity: "1",
             }}
+            ease="Strong.easeOut"
             totalProgress={progress}
             paused
           >
-            <img src={a2} className="letter a2" />
+            <img src={text} className="letter text" />
           </Tween>
         )}
       </Scene>
-      <Scene triggerElement="#letters-anim" duration={200} pin={false}>
+      <Scene triggerElement="#dev-anim" duration={200} offset={100}>
         {progress => (
           <Tween
-            from={{
-              css: {
-                left: "250px",
-                top: "50%",
-              },
-              ease: "Strong.easeOut",
-            }}
             to={{
-              css: {
-                left: "150px",
-                top: "25%",
-                rotation: -180,
-                width: "150px",
-                height: "150px",
-              },
-              ease: "Strong.easeOut",
+              top: "30%",
+              transform: "scale(1)",
+              opacity: "1",
             }}
+            ease="Strong.easeOut"
             totalProgress={progress}
             paused
           >
-            <img src={a3} className="letter a2" />
+            <img src={anim} className="letter anim" />
+          </Tween>
+        )}
+      </Scene>
+      <Scene triggerElement="#dev-anim" duration={200} offset={100}>
+        {progress => (
+          <Tween
+            to={{
+              top: "56%",
+              transform: "scale(1)",
+              opacity: "1",
+            }}
+            ease="Strong.easeOut"
+            totalProgress={progress}
+            paused
+          >
+            <img src={hello} className="letter hello" />
           </Tween>
         )}
       </Scene>
     </Controller>
     <Text>
       {" "}
-      <h5>Research</h5>
+      <h5>Development</h5>
       <p>
         Either you need a <b>website</b> for your business, or you want to give
         your old website a <b>modern feeling</b>, the first step in the process
@@ -131,7 +132,7 @@ const Step2 = () => (
   </TweenStyled>
 )
 
-export default Step2
+export default Step5
 
 const Text = styled.div`
   width: 100%;

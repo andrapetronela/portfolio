@@ -10,7 +10,7 @@ const Navigation = () => {
   return (
     <Container>
       <MainGrid>
-        <Sticky>
+        <Sticky open={menuOpen}>
           <MainGrid>
             <Inner>
               <a href="/">
@@ -73,6 +73,8 @@ const Container = styled.div`
 `
 
 const Sticky = styled.div`
+  border-bottom: ${props =>
+    props.open ? "none" : `1px solid ${theme.text.second}`};
   background: ${theme.background.light};
   width: 100%;
   position: fixed;
@@ -132,7 +134,8 @@ const BurgerMenu = styled.div`
   background-color: ${theme.background.light};
   z-index: 8;
   transition: top 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-
+  overflow-y: scroll;
+  padding-bottom: 15rem;
   & .menu-item,
   .menu-item:link,
   .menu-item:visited {
