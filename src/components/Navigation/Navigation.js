@@ -92,6 +92,7 @@ const Inner = styled.div`
 `
 
 const Logo = styled.img`
+  height: 35px;
   &::selection {
     color: #aa857f;
   }

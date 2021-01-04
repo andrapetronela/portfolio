@@ -26,7 +26,7 @@ html {
 
 html {
   /* Firefox scroll bar */
-  scrollbar-color: #aa857f #1a1312;
+  scrollbar-color: #1a1312 #fafafc;
 }
 body {
   font-size: 1.6rem;
@@ -248,5 +248,14 @@ li::selection {
   100% {
     transform: translateX(-105%);
     opacity: 1;
+  }
+}
+
+@keyframes animateGradient {
+  0% {
+    background-position: bottom right;
+  }
+  100% {
+    background-position: top left;
   }
 }
