@@ -12,7 +12,7 @@ import Step7 from "./Step7"
 
 const ProcessAnimation = () => {
   return (
-    <Outer>
+    <Outer id="process">
       <MainGrid left>
         <Container>
           <Heading>Process</Heading>
