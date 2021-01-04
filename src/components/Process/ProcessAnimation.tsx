@@ -34,7 +34,7 @@ export default ProcessAnimation
 const Outer = styled.section`
   display: none;
   @media (min-width: 768px) {
-    padding: 15rem 0;
+    padding: 15rem 0 0;
     display: block;
   }
 `

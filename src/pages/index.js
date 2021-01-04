@@ -12,6 +12,7 @@ import Description from "../components/Description/Description"
 import ProcessAnimation from "../components/Process/ProcessAnimation"
 import Passions from "../components/Description/Passions"
 import HpGridProjects from "../components/Grids/HpGridProjects"
+import ContactBanner from "../components/ContactBanner/ContactBanner"
 
 const IndexPage = () => (
   <Layout>
@@ -27,6 +28,7 @@ const IndexPage = () => (
       <Passions />
     </TrackVisibility>
     <HpGridProjects />
+    <ContactBanner />
   </Layout>
 )
 

@@ -40,6 +40,7 @@ const Wrapper = styled.a<IWrapper>`
   &,
   &:link,
   &:visited {
+    z-index: 1;
     width: 100%;
     max-width: 40rem;
     font-size: 14px;
@@ -70,6 +71,10 @@ const Wrapper = styled.a<IWrapper>`
       top: 0;
       width: 0;
       height: 100%;
+    }
+
+    &:after {
+      top: 1px;
     }
 
     &:before {
