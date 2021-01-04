@@ -24,38 +24,38 @@ const Navigation = () => {
           </MainGrid>
         </Sticky>
         <BurgerMenu open={menuOpen}>
-          <a id="about" className="menu-item" href="/about">
+          <a href="/about" className="menu-item">
             About
           </a>
-          <a id="process" className="menu-item">
+          <a href="/#process" className="menu-item">
             Process
           </a>
-          <a id="skills" className="menu-item">
+          <a href="/#skills" className="menu-item">
             Skills
           </a>
-          <a id="projects" className="menu-item" href="/projects">
+          <a href="/projects" className="menu-item">
             Projects
           </a>
-          <a id="contact" className="menu-item" href="/contact">
+          <a href="/contact" className="menu-item">
             Contact
           </a>
         </BurgerMenu>
 
         <TopNav>
           <TopNavInner open={menuOpen}>
-            <a id="about" className="top-item" href="/about">
+            <a href="/about" className="top-item">
               About
             </a>
-            <a id="process" className="top-item">
+            <a href="/#process" className="top-item">
               Process
             </a>
-            <a id="skills" className="top-item">
+            <a href="/#skills" className="top-item">
               Skills
             </a>
-            <a id="projects" className="top-item" href="/projects">
+            <a href="/projects" className="top-item">
               Projects
             </a>
-            <a id="contact" className="top-item" href="/contact">
+            <a href="/contact" className="top-item">
               Contact
             </a>
           </TopNavInner>
@@ -172,10 +172,15 @@ const BurgerMenu = styled.div`
   }
 `
 const TopNav = styled.div`
-  width: 70rem;
+  width: 70%;
+  max-width: 1000px;
   position: absolute;
   top: 35px;
   margin: 0 auto;
+
+  @media (min-width: 1200px) {
+    /* right: 20rem; */
+  }
 `
 const TopNavInner = styled.div`
   justify-content: flex-end;

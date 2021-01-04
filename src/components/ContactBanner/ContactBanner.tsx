@@ -28,9 +28,6 @@ export default ContactBanner
 const Container = styled.div`
   width: 100%;
   background: ${theme.text.main};
-  background: linear-gradient(to right, #1a1312 70%, rgba(55, 37, 31, 0.4));
-  background-size: 200%;
-  animation: animateGradient 10s infinite alternate-reverse forwards;
   color: ${theme.text.second};
 `
 const Inner = styled.div`

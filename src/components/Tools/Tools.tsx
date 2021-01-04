@@ -1,66 +1,86 @@
 import React from "react"
-import MainGrid from "../../shared/MainGrid"
+import SmallGrid from "../../shared/SmallGrid"
 import styled from "styled-components"
 import theme from "../../shared/theme"
-import Button from "../Button"
 
 interface ITools {
   isVisible?: boolean
 }
 const Tools = ({ isVisible }: ITools) => {
   return (
-    <MainGrid>
-      <Container>
-        <Sticky isVisible={isVisible}>
-          <h2>
-            I am delighted to have <b>you</b> here.
-          </h2>
-          <h4>
-            I hope you will enjoy your <b>journey</b>.
-          </h4>
-        </Sticky>
-        <Col>
-          Some say I might be a <b>Unicorn</b>. Others call people like me a{" "}
-          <b>hybrid</b>. Most are often confused and they think{" "}
-          <b>UX Developer</b> really exists … Truth is … I am Andra - a{" "}
-          <b>Front End developer</b> with a keen eye for <b>aesthetics</b>,
-          eager to discover the latest <b>typography</b> trends, <b>colour</b>{" "}
-          schemes and <b>motion graphics</b>.
-          <Button text="Read more" marginTop="40px" href="/about" />
-        </Col>
-      </Container>
-    </MainGrid>
+    <SmallGrid left columns>
+      <Inner>
+        <Heading isVisible={isVisible}>Tools</Heading>
+        <Container>
+          <Sticky>
+            <h3>Design</h3>
+          </Sticky>
+          <Col>
+            <p>
+              Abobe <b>Illustrator</b>
+            </p>
+            <p>
+              <b>Abobe</b> Photoshop
+            </p>
+            <p>
+              Abobe <b>XD</b>
+            </p>
+            <p>
+              Abobe <b>After</b> Effects
+            </p>
+            <p>
+              Web<b>Flow</b>
+            </p>
+          </Col>
+        </Container>
+        <Container>
+          <Sticky>
+            <h3>Development</h3>
+          </Sticky>
+          <Col>
+            <p>
+              HTML<b>5</b>
+            </p>
+            <p>
+              <b>CSS</b>3
+            </p>
+            <p>
+              Java<b>Script</b>
+            </p>
+            <p>
+              <b>Type</b>Script
+            </p>
+            <p>
+              React<b>JS</b>
+            </p>
+            <p>Gatsby</p>
+            <p>
+              Styled <b> Components</b>
+            </p>
+            <p>
+              Graph<b>QL</b>
+            </p>
+            <p>Github</p>
+          </Col>
+        </Container>
+      </Inner>
+    </SmallGrid>
   )
 }
 
 export default Tools
 
-const Container = styled.div`
-  position: relative;
-  padding: 20rem 0 15rem;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+const Inner = styled.div`
+  padding: 10rem 0;
 `
 
 interface ISticky {
   isVisible?: boolean
 }
-const Sticky = styled.div<ISticky>`
-  position: relative;
-  margin-bottom: 10rem;
-  @media (min-width: 768px) {
-    margin-bottom: 0rem;
-    position: sticky;
-    left: 0;
-    bottom: 0;
-    top: 100px;
-  }
 
+const Heading = styled.h2<ISticky>`
+  position: relative;
+  display: block;
   &::after {
     position: absolute;
     content: " ";
@@ -73,15 +93,38 @@ const Sticky = styled.div<ISticky>`
     margin: 0 auto;
     border-radius: 16px;
   }
+`
+
+const Container = styled.div`
+  padding: 20rem 0 15rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
+
+const Sticky = styled.div`
+  position: relative;
+  margin-bottom: 10rem;
+  @media (min-width: 768px) {
+    margin-bottom: 0rem;
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    top: 100px;
+  }
 
   @media (min-width: 768px) {
-    width: 48%;
+    width: 50%;
   }
 `
 const Col = styled.div`
   @media (min-width: 768px) {
-    padding-top: 50rem;
-    width: 40%;
+    width: 50%;
   }
   &::selection {
     color: #aa857f;
