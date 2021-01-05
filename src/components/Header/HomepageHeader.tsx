@@ -2,77 +2,78 @@ import React from "react"
 import MainGrid from "../../shared/MainGrid"
 import styled from "styled-components"
 import theme from "../../shared/theme"
-
+import img1 from "../../images/bridge/1.jpg"
+import img2 from "../../images/bridge/2.jpg"
+import img3 from "../../images/bridge/3.jpg"
+import img4 from "../../images/bridge/4.jpg"
+import img5 from "../../images/bridge/5.jpg"
+import img6 from "../../images/bridge/6.jpg"
+import img7 from "../../images/bridge/7.jpg"
+import img8 from "../../images/bridge/8.jpg"
+import img9 from "../../images/bridge/9.jpg"
+import img10 from "../../images/bridge/10.jpg"
+import img11 from "../../images/bridge/11.jpg"
+import img12 from "../../images/bridge/12.jpg"
+import img13 from "../../images/bridge/13.jpg"
+import img14 from "../../images/bridge/14.jpg"
+import img15 from "../../images/bridge/15.jpg"
+import img16 from "../../images/bridge/16.jpg"
+import img17 from "../../images/bridge/17.jpg"
+import img18 from "../../images/bridge/18.jpg"
+import img19 from "../../images/bridge/19.jpg"
+import img20 from "../../images/bridge/20.jpg"
+import img21 from "../../images/bridge/21.jpg"
+import img22 from "../../images/bridge/22.jpg"
+import img23 from "../../images/bridge/23.jpg"
+import img24 from "../../images/bridge/24.jpg"
+import img25 from "../../images/bridge/25.jpg"
+import img26 from "../../images/bridge/26.jpg"
+import img27 from "../../images/bridge/27.jpg"
+import img28 from "../../images/bridge/28.jpg"
+import img29 from "../../images/bridge/29.jpg"
+import img30 from "../../images/bridge/30.jpg"
+import img31 from "../../images/bridge/31.jpg"
+import img32 from "../../images/bridge/32.jpg"
 const HomepageHeader = () => {
   return (
     <MainGrid>
       <Container>
         <Col>
-          <h1>
-            Bridge the gap between <span>design</span> &mdash;{" "}
-            <span>development</span>
-          </h1>
-          <h2>Create memorable user experiences.</h2>
+          <h1>Bridge the gap between design & development</h1>
         </Col>
         <ColAnim>
-          <Wall />
-          <CenterWrapper>
-            <BricksWrapper>
-              <Row>
-                <BrickMask timing="8s" delay=".5s">
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="7s" delay="1s">
-                  <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="9s" delay="2.5s">
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="7s" delay="0.8s">
-                  <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="8s" delay="1.4s">
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-            </BricksWrapper>
-            <BricksWrapper2>
-              <Row>
-                <BrickMask timing="9s" delay="1.7s" right>
-                  <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="7s" delay="2.2s" right>
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="8s" delay=".6s" right>
-                  <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="7s" delay="1.2s" right>
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="9s" delay="4s" right>
-                  <Brick />
-                </BrickMask>
-              </Row>
-            </BricksWrapper2>
-          </CenterWrapper>
-          <Wall right />
+          <Row src={img32} alt="Bridge wood illustration" />
+          <Row src={img31} alt="Bridge wood illustration" />
+          <Row src={img30} alt="Bridge wood illustration" />
+          <Row src={img29} alt="Bridge wood illustration" />
+          <Row src={img28} alt="Bridge wood illustration" />
+          <Row src={img27} alt="Bridge wood illustration" />
+          <Row src={img26} alt="Bridge wood illustration" />
+          <Row src={img25} alt="Bridge wood illustration" />
+          <Row src={img24} alt="Bridge wood illustration" />
+          <Row src={img23} alt="Bridge wood illustration" />
+          <Row src={img22} alt="Bridge wood illustration" />
+          <Row src={img21} alt="Bridge wood illustration" />
+          <Row src={img20} alt="Bridge wood illustration" />
+          <Row src={img19} alt="Bridge wood illustration" />
+          <Row src={img18} alt="Bridge wood illustration" />
+          <Row src={img17} alt="Bridge wood illustration" />
+          <Row src={img16} alt="Bridge wood illustration" />
+          <Row src={img15} alt="Bridge wood illustration" />
+          <Row src={img14} alt="Bridge wood illustration" />
+          <Row src={img13} alt="Bridge wood illustration" />
+          <Row src={img12} alt="Bridge wood illustration" />
+          <Row src={img11} alt="Bridge wood illustration" />
+          <Row src={img10} alt="Bridge wood illustration" />
+          <Row src={img9} alt="Bridge wood illustration" />
+          <Row src={img8} alt="Bridge wood illustration" />
+          <Row src={img7} alt="Bridge wood illustration" />
+          <Row src={img6} alt="Bridge wood illustration" />
+          <Row src={img5} alt="Bridge wood illustration" />
+          <Row src={img4} alt="Bridge wood illustration" />
+          <Row src={img3} alt="Bridge wood illustration" />
+          <Row src={img2} alt="Bridge wood illustration" />
+          <Row src={img1} alt="Bridge wood illustration" />
         </ColAnim>
       </Container>
     </MainGrid>
@@ -81,9 +82,10 @@ const HomepageHeader = () => {
 
 export default HomepageHeader
 
-const Container = styled.div`
+const Container = styled.section`
   width: 100%;
   padding: 8rem 0 25rem;
+  position: relative;
   display: flex;
   flex-direction: column-reverse;
   @media (min-width: 1024px) {
@@ -109,86 +111,32 @@ const Container = styled.div`
   }
 `
 const Col = styled.div`
+  & h1 {
+    letter-spacing: 1.5px;
+
+    &::selection {
+      color: ${theme.accent};
+    }
+  }
   @media (min-width: 1024px) {
-    width: 45%;
+    width: 70%;
+    margin-left: 10rem;
   }
 `
 
 const ColAnim = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 0 2px;
+  justify-content: center;
   height: 50rem;
+  position: relative;
   width: 100%;
   margin-bottom: 5rem;
   @media (min-width: 1024px) {
     margin-bottom: 0;
-    width: 50%;
+    width: 40%;
   }
 `
-interface IWall {
-  right?: boolean
-}
-const Wall = styled.div<IWall>`
-  height: 95%;
-  width: 8px;
-  border-radius: 18px;
-  background: #cfd9de;
-  opacity: 0.2;
-  margin-left: ${props => props.right && "auto"};
-`
 
-const CenterWrapper = styled.div`
-  width: 100%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-`
-
-const BricksWrapper = styled.div`
-  width: 100%;
-  height: 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`
-const BricksWrapper2 = styled(BricksWrapper)``
-
-const Row = styled.div`
-  width: 100%;
-  display: flex;
-`
-interface IBrick {
-  right?: boolean
-  timing: string
-  delay?: string
-}
-const BrickMask = styled.div<IBrick>`
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  width: 100%;
-  height: 4px;
-  opacity: 0;
-  animation: ${props =>
-    props.right
-      ? `movebrickhp ${
-          props.timing && props.timing
-        } cubic-bezier(0.5, 0, 0.75, 0) reverse forwards infinite ${
-          props.delay && props.delay
-        }`
-      : `movebrickhp ${
-          props.timing && props.timing
-        }  cubic-bezier(0.25, 1, 0.5, 1) forwards infinite ${
-          props.delay && props.delay
-        }`};
-`
-
-const Brick = styled.div`
-  width: 33%;
-  height: 4px;
-  border-radius: 100px;
-  background: ${theme.accent};
-`
+const Row = styled.img``

@@ -5,34 +5,19 @@ import MainGrid from "../../shared/MainGrid"
 import img from "../../images/andra.jpg"
 import hellotext from "../../images/hello-text.svg"
 import hellomob from "../../images/hello-mobile.svg"
-import { Controller, Scene } from "react-scrollmagic"
-import { Tween, Timeline } from "react-gsap"
 
-const Hello = () => {
+interface IHello {
+  isVisible?: boolean
+}
+const Hello = ({ isVisible }: IHello) => {
   return (
     <MainGrid>
       <Container>
         <HelloText src={hellotext} alt="Hello" />
         <HelloMob src={hellomob} alt="Hello" />
         <Figure>
-          <Controller>
-            <div className="section" />
-            <Scene duration="100%" offset={-250}>
-              <Timeline wrapper={<div className="parallax" />}>
-                <Tween
-                  position="0"
-                  from={{
-                    yPercent: -5,
-                  }}
-                  to={{
-                    yPercent: 0,
-                  }}
-                >
-                  <HelloImg src={img} alt="Andra" />
-                </Tween>
-              </Timeline>
-            </Scene>
-          </Controller>
+          <HelloImg src={img} alt="Andra" isVisible={isVisible} />
+          <Overlay isVisible={isVisible} />
         </Figure>
       </Container>
     </MainGrid>
@@ -54,20 +39,26 @@ const Container = styled.section`
     margin-left: auto;
   }
 
-  & .parallax {
-    height: 150%;
-    width: 150%;
-    overflow: hidden;
-    left: -25%;
-    position: relative;
+  @media (min-width: 1024px) {
+    height: 66rem;
   }
 `
 
-const HelloImg = styled.img`
+const HelloImg = styled.img<IHello>`
   margin-left: auto;
   @media (min-width: 1024px) {
-    width: 87%;
     transition: all 1s ease;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: ${props =>
+      props.isVisible
+        ? "translate(-50%, -50%) scale(1.3)"
+        : "translate(-50%, -50%) scale(0)"};
+    animation: ${props => (props.isVisible ? "pic 2s" : "none")};
+    animation-fill-mode: forwards;
   }
 `
 
@@ -77,7 +68,6 @@ const HelloText = styled.img`
     display: block;
     z-index: 2;
     width: 100%;
-    position: absolute;
     bottom: 10px;
   }
 `
@@ -98,5 +88,22 @@ const Figure = styled.figure`
     margin-left: auto;
     display: block;
     transition: all 1s ease;
+    position: absolute;
+    top: -20%;
+    left: 56%;
+    width: 45%;
+    height: 66rem;
+    border-radius: 2px;
+    overflow: hidden;
   }
+`
+const Overlay = styled.div<IHello>`
+  width: 100%;
+  height: 100%;
+  background-color: ${theme.accent};
+  position: absolute;
+  transition: all 0.5s;
+  transform: scaleX(0);
+  transform-origin: 0% 50%;
+  animation: ${props => (props.isVisible ? "overlay 2s" : "none")};
 `

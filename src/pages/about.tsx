@@ -5,25 +5,14 @@ import TrackVisibility from "react-on-screen"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-import Navigation from "../components/Navigation/Navigation"
-import HomepageHeader from "../components/Header/HomepageHeader"
-import Hello from "../components/Hello/Hello"
-import Description from "../components/Description/Description"
-import Passions from "../components/Description/Passions"
+import AboutHeader from "../components/Header/AboutHeader"
+import ContactBanner from "../components/ContactBanner/ContactBanner"
 
 const AboutPage = () => (
-  <Layout>
+  <Layout activeLink="about">
     <SEO title="About" />
-    <Navigation />
-    <Hello />
-    <TrackVisibility offset={400}>
-      <Description />
-    </TrackVisibility>
-    <TrackVisibility offset={600}>
-      <Passions />
-    </TrackVisibility>
-    <HomepageHeader />
-    <HomepageHeader />
+    <AboutHeader />
+    <ContactBanner nobackground primaryBtn />
   </Layout>
 )
 

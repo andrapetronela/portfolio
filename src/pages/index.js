@@ -1,13 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
 import TrackVisibility from "react-on-screen"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
-import Navigation from "../components/Navigation/Navigation"
 import HomepageHeader from "../components/Header/HomepageHeader"
-import Hello from "../components/Hello/Hello"
+import Hello from "../components/Hello/HelloReveal"
 import Description from "../components/Description/Description"
 import ProcessAnimation from "../components/Process/ProcessAnimation"
 import Passions from "../components/Description/Passions"
@@ -18,9 +14,10 @@ import Tools from "../components/Tools/Tools"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Navigation />
     <HomepageHeader />
-    <Hello />
+    <TrackVisibility offset={400}>
+      <Hello />
+    </TrackVisibility>
     <TrackVisibility offset={400}>
       <Description />
     </TrackVisibility>
