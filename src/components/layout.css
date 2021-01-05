@@ -240,23 +240,19 @@ li::selection {
 
 @keyframes movebrickhp {
   0% {
-    transform: translateX(-105%);
-    opacity: 0;
+    left: 0;
   }
   100% {
-    transform: translateX(105%);
-    opacity: 1;
+    left: 100%;
   }
 }
 
 @keyframes movebrickhpright {
   0% {
-    transform: translateX(105%);
-    opacity: 0;
+    left: 100%;
   }
   100% {
-    transform: translateX(-105%);
-    opacity: 1;
+    left: 0;
   }
 }
 
@@ -309,47 +305,82 @@ li::selection {
   }
 }
 
-@keyframes float {
+/* @keyframes float {
   0% {
-    transform: translate3d(0px, 20px, 50px) rotate(-7deg);
+    transform: translate3d(0px, 20px, 50px) rotate(-3deg);
     opacity: 0.1;
   }
   35% {
-    transform: translate3d(0, -60px, 0px) rotate(7deg);
+    transform: translate3d(0, -60px, 0px) rotate(3deg);
     opacity: 0.9;
   }
   75% {
-    transform: translate3d(0, -80px, 0px) rotate(7deg);
+    transform: translate3d(0, -80px, 0px) rotate(3deg);
     opacity: 0.5;
   }
   100% {
-    transform: translate3d(0px, 20px, 50px) rotate(-7deg);
+    transform: translate3d(0px, 20px, 50px) rotate(-3deg);
     opacity: 0.1;
+  }
+} */
+/* 
+@keyframes float {
+  0% {
+    transform: translate3d(0px, 200px, 200px) rotate(0deg);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translate3d(0, 0px, 0px) rotate(0deg);
+    opacity: 0.5;
+  }
+} */
+
+@keyframes float {
+  0% {
+    transform: translate3d(0px, -120px, -120px) scale(0.4);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0px, 120px, 120px) scale(0.4);
+    opacity: 0.7;
   }
 }
 
-@keyframes floatBall {
+@keyframes floatMobile {
   0% {
-    transform: translate3d(0px, 90px, 60px) rotate(-4deg) scale(0.6);
-    opacity: 0;
+    transform: translate3d(0px, -100px, -100px) scale(0.4);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    opacity: 1;
   }
 
-  25% {
-    opacity: 0.1;
+  100% {
+    transform: translate3d(0px, 100px, 100px) scale(0.4);
+    opacity: 0.3;
   }
-  35% {
-    transform: translate3d(0, -140px, -1000px) rotate(2deg) scale(0.5);
-    opacity: 0;
+}
+
+/* About page header rotate circles */
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-240deg) scale3d(0.7, 0.4, 1);
+    opacity: 0.2;
   }
-  75% {
-    transform: translate3d(0, -180px, -1000px) rotate(2deg) scale(0.4);
-    opacity: 0;
-  }
-  90% {
-    opacity: 0.1;
+  50% {
+    opacity: 1;
+    transform: rotate(240deg) scale3d(0.7, 1, 1);
   }
   100% {
-    transform: translate3d(0px, 90px, 100px) rotate(-4deg) scale(0.6);
-    opacity: 0;
+    transform: rotate(-240deg) scale3d(0.7, 0.4, 1);
+    opacity: 0.2;
   }
 }

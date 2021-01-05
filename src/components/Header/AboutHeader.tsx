@@ -2,6 +2,11 @@ import React from "react"
 import MainGrid from "../../shared/MainGrid"
 import styled from "styled-components"
 import theme from "../../shared/theme"
+import circle1 from "../../images/about-circles/circle1.svg"
+import circle2 from "../../images/about-circles/circle2.svg"
+import circle3 from "../../images/about-circles/circle3.svg"
+import circle4 from "../../images/about-circles/circle4.svg"
+import circle5 from "../../images/about-circles/circle5.svg"
 
 const AboutHeader = () => {
   return (
@@ -11,64 +16,13 @@ const AboutHeader = () => {
           <h1>About</h1>
         </Col>
         <ColAnim>
-          <Wall />
-          <CenterWrapper>
-            <BricksWrapper>
-              <Row>
-                <BrickMask timing="8s" delay=".5s">
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="7s" delay="1s">
-                  <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="9s" delay="2.5s">
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="7s" delay="0.8s">
-                  <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="8s" delay="1.4s">
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-            </BricksWrapper>
-            <BricksWrapper2>
-              <Row>
-                <BrickMask timing="9s" delay="1.7s" right>
-                  <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="7s" delay="2.2s" right>
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="8s" delay=".6s" right>
-                  <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="7s" delay="1.2s" right>
-                  <Brick /> <Brick />
-                </BrickMask>
-              </Row>
-              <Row>
-                <BrickMask timing="9s" delay="4s" right>
-                  <Brick />
-                </BrickMask>
-              </Row>
-            </BricksWrapper2>
-          </CenterWrapper>
-          <Wall right />
+          <BricksWrapper>
+            <Circle src={circle1} alt="Circle" delay="0s" timing="0.4s" />
+            <Circle src={circle2} alt="Circle" delay="0.4s" timing="0.6s" />
+            <Circle src={circle3} alt="Circle" delay="0.8s" timing="0.8s" />
+            <Circle src={circle4} alt="Circle" delay="1.2s" timing="1s" />
+            <Circle src={circle5} alt="Circle" delay="1.6s" timing="1.2s" />
+          </BricksWrapper>
         </ColAnim>
       </Container>
     </MainGrid>
@@ -123,69 +77,28 @@ const ColAnim = styled.div`
     width: 50%;
   }
 `
-interface IWall {
-  right?: boolean
-}
-const Wall = styled.div<IWall>`
-  height: 95%;
-  width: 8px;
-  border-radius: 18px;
-  background: #cfd9de;
-  opacity: 0.2;
-  margin-left: ${props => props.right && "auto"};
-`
-
-const CenterWrapper = styled.div`
-  width: 100%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-`
 
 const BricksWrapper = styled.div`
   width: 100%;
-  height: 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`
-const BricksWrapper2 = styled(BricksWrapper)``
-
-const Row = styled.div`
-  width: 100%;
-  display: flex;
-`
-interface IBrick {
-  right?: boolean
-  timing: string
-  delay?: string
-}
-const BrickMask = styled.div<IBrick>`
-  display: flex;
-  justify-content: space-between;
+  height: 100%;
+  margin: 0 auto 24px;
   position: relative;
-  width: 100%;
-  height: 4px;
-  opacity: 0;
-  animation: ${props =>
-    props.right
-      ? `movebrickhp ${
-          props.timing && props.timing
-        } cubic-bezier(0.5, 0, 0.75, 0) reverse forwards infinite ${
-          props.delay && props.delay
-        }`
-      : `movebrickhp ${
-          props.timing && props.timing
-        }  cubic-bezier(0.25, 1, 0.5, 1) forwards infinite ${
-          props.delay && props.delay
-        }`};
+  perspective: 1000px;
 `
-
-const Brick = styled.div`
-  width: 33%;
-  height: 4px;
-  border-radius: 100px;
-  background: ${theme.accent};
+interface ICircle {
+  timing: string
+  delay: string
+}
+const Circle = styled.img<ICircle>`
+  position: absolute;
+  perspective: 1000px;
+  transform: scale(0);
+  transition: all 2s ease;
+  opacity: 0;
+  top: 0%;
+  left: 0%;
+  animation: rotate 20s ease-in infinite ${props => props.delay};
+  &::selection {
+    color: ${theme.accent};
+  }
 `

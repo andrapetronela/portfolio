@@ -70,7 +70,6 @@ const HomepageHeader = () => {
           <Row src={img22} alt="Bridge wood illustration" delay="0.3s" />
           <Row src={img23} alt="Bridge wood illustration" delay="0.2s" />
           <Row src={img24} alt="Bridge wood illustration" delay="0.1s" />
-          <Ball />
 
           {/* <Row src={img25} alt="Bridge wood illustration" />
           <Row src={img26} alt="Bridge wood illustration" />
@@ -144,17 +143,10 @@ interface IRow {
   delay: string
 }
 const Row = styled.img<IRow>`
-  animation: float 10s ease infinite alternate ${props => props.delay};
+  animation: floatMobile 10s ease infinite alternate ${props => props.delay};
+
   opacity: 0;
-`
-const Ball = styled.div`
-  width: 40px;
-  height: 40px;
-  background: ${theme.accent};
-  border-radius: 100%;
-  animation: floatBall 10s ease infinite alternate 0s;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity: 0;
+  @media (min-width: 768px) {
+    animation: float 12s ease infinite alternate ${props => props.delay};
+  }
 `
