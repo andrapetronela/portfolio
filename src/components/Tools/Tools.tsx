@@ -9,69 +9,78 @@ interface ITools {
 const Tools = ({ isVisible }: ITools) => {
   return (
     <SmallGrid left columns>
-      <Inner>
+      <Outer>
         <Heading isVisible={isVisible}>Tools</Heading>
-        <Container>
-          <Sticky>
-            <h3>Design</h3>
-          </Sticky>
-          <Col>
-            <p>
-              Abobe <b>Illustrator</b>
-            </p>
-            <p>
-              <b>Abobe</b> Photoshop
-            </p>
-            <p>
-              Abobe <b>XD</b>
-            </p>
-            <p>
-              Abobe <b>After</b> Effects
-            </p>
-            <p>
-              Web<b>Flow</b>
-            </p>
-          </Col>
-        </Container>
-        <Container>
-          <Sticky>
-            <h3>Development</h3>
-          </Sticky>
-          <Col>
-            <p>
-              HTML<b>5</b>
-            </p>
-            <p>
-              <b>CSS</b>3
-            </p>
-            <p>
-              Java<b>Script</b>
-            </p>
-            <p>
-              <b>Type</b>Script
-            </p>
-            <p>
-              React<b>JS</b>
-            </p>
-            <p>Gatsby</p>
-            <p>
-              Styled <b> Components</b>
-            </p>
-            <p>
-              Graph<b>QL</b>
-            </p>
-            <p>Github</p>
-          </Col>
-        </Container>
-      </Inner>
+        <Inner>
+          <Container>
+            <Sticky>
+              <h3>Design</h3>
+            </Sticky>
+            <Col>
+              <p>
+                Abobe <b>Illustrator</b>
+              </p>
+              <p>
+                <b>Abobe</b> Photoshop
+              </p>
+              <p>
+                Abobe <b>XD</b>
+              </p>
+              <p>
+                Abobe <b>After</b> Effects
+              </p>
+              <p>
+                Web<b>Flow</b>
+              </p>
+            </Col>
+          </Container>
+          <Container>
+            <Sticky>
+              <h3>Development</h3>
+            </Sticky>
+            <Col>
+              <p>
+                HTML<b>5</b>
+              </p>
+              <p>
+                <b>CSS</b>3
+              </p>
+              <p>
+                Java<b>Script</b>
+              </p>
+              <p>
+                <b>Type</b>Script
+              </p>
+              <p>
+                React<b>JS</b>
+              </p>
+              <p>Gatsby</p>
+              <p>
+                Styled <b> Components</b>
+              </p>
+              <p>
+                Graph<b>QL</b>
+              </p>
+              <p>Github</p>
+            </Col>
+          </Container>
+        </Inner>
+      </Outer>
     </SmallGrid>
   )
 }
 
 export default Tools
 
+const Outer = styled.section`
+  padding: 10rem 0 5rem;
+`
+
 const Inner = styled.div`
-  padding: 10rem 0;
+  display: flex;
+  @media (min-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 interface ISticky {
@@ -84,7 +93,7 @@ const Heading = styled.h2<ISticky>`
   &::after {
     position: absolute;
     content: " ";
-    height: 4px;
+    height: 2px;
     width: ${props => (props.isVisible ? "90%" : "0%")};
     bottom: -20px;
     left: 0;
@@ -96,12 +105,13 @@ const Heading = styled.h2<ISticky>`
 `
 
 const Container = styled.div`
-  padding: 20rem 0 15rem;
+  padding: 10rem 0 0;
   width: 100%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   @media (min-width: 768px) {
+    padding: 10rem 0;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -109,7 +119,15 @@ const Container = styled.div`
 
 const Sticky = styled.div`
   position: relative;
-  margin-bottom: 10rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 400px) {
+    & h3 {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
   @media (min-width: 768px) {
     margin-bottom: 0rem;
     position: sticky;
@@ -123,6 +141,12 @@ const Sticky = styled.div`
   }
 `
 const Col = styled.div`
+  @media (max-width: 400px) {
+    & p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
   @media (min-width: 768px) {
     width: 50%;
   }

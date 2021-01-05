@@ -11,14 +11,14 @@ const Passions = ({ isVisible }: IPass) => {
     <MainGrid>
       <Container>
         <Sticky isVisible={isVisible}>
-          <h2>Passions</h2>
+          <h2>Interest</h2>
         </Sticky>
         <Col>
-          <h3>front end dev</h3>
-          <h3>animations</h3>
-          <h3>logo design</h3>
-          <h3>brand identity</h3>
-          <h3>ui - ux design</h3>
+          <li>front end dev</li>
+          <li>animations</li>
+          <li>logo design</li>
+          <li>brand identity</li>
+          <li>ui - ux design</li>
         </Col>
       </Container>
     </MainGrid>
@@ -27,14 +27,15 @@ const Passions = ({ isVisible }: IPass) => {
 
 export default Passions
 
-const Container = styled.div`
+const Container = styled.section`
   position: relative;
-  padding: 20rem 0 15rem;
+  padding: 5rem 0 10rem;
   width: 100%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   @media (min-width: 768px) {
+    padding: 20rem 0 15rem;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -57,7 +58,7 @@ const Sticky = styled.div<ISticky>`
   &::after {
     position: absolute;
     content: " ";
-    height: 4px;
+    height: 2px;
     width: ${props => (props.isVisible ? "90%" : "0%")};
     bottom: -20px;
     left: 0;
@@ -72,6 +73,9 @@ const Sticky = styled.div<ISticky>`
   }
 `
 const Col = styled.ul`
+  list-style-type: none;
+  font-size: 3rem;
+  line-height: 4.6rem;
   @media (min-width: 768px) {
     padding-top: 50rem;
     width: 40%;

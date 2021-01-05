@@ -62,7 +62,7 @@ const HpGridProjects = () => {
 
 export default HpGridProjects
 
-const Inner = styled.div`
+const Inner = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;

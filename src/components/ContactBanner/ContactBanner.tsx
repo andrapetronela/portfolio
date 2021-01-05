@@ -3,20 +3,24 @@ import styled from "styled-components"
 import theme from "../../shared/theme"
 import Button from "../Button"
 
-const ContactBanner = () => {
+interface IContact {
+  nobackground?: boolean
+  primaryBtn?: boolean
+}
+const ContactBanner = ({ nobackground, primaryBtn }: IContact) => {
   return (
-    <Container>
+    <Container nobackground={nobackground}>
       <Inner>
-        <h4>
+        <h5>
           Do you have a business opportunity, or are you just a creative looking
           to collaborate?
-        </h4>
+        </h5>
         <Button
           href="/contact"
           text="Get in touch"
           marginTop="0"
-          color={theme.text.second}
-          colorHover={theme.text.main}
+          color={!primaryBtn && theme.text.second}
+          colorHover={!primaryBtn && theme.text.main}
         />
       </Inner>
     </Container>
@@ -25,10 +29,10 @@ const ContactBanner = () => {
 
 export default ContactBanner
 
-const Container = styled.div`
+const Container = styled.section<IContact>`
   width: 100%;
-  background: ${theme.text.main};
-  color: ${theme.text.second};
+  background: ${props => (props.nobackground ? "none" : theme.text.main)};
+  color: ${props => (props.nobackground ? theme.text.main : theme.text.second)};
 `
 const Inner = styled.div`
   width: 100%;
@@ -36,11 +40,11 @@ const Inner = styled.div`
   margin: 0 auto;
   padding: 14rem 20px;
 
-  & h4 {
+  & h5 {
     margin-bottom: 20px;
     @media (min-width: 768px) {
       margin-bottom: 0px;
-      width: 60%;
+      width: 45%;
     }
   }
 

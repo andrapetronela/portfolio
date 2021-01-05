@@ -5,7 +5,7 @@ import MainGrid from "../../shared/MainGrid"
 import theme from "../../shared/theme"
 import line from "../../images/line-menu.svg"
 
-const Navigation = () => {
+const Navigation = ({ activeLink }) => {
   const [menuOpen, openMenu] = useState(false)
   return (
     <Container>
@@ -24,7 +24,11 @@ const Navigation = () => {
           </MainGrid>
         </Sticky>
         <BurgerMenu open={menuOpen}>
-          <a href="/about" className="menu-item">
+          <a
+            href="/about"
+            className="menu-item"
+            activeLink={activeLink === "about"}
+          >
             About
           </a>
           <a href="/#process" className="menu-item">
@@ -142,7 +146,6 @@ const BurgerMenu = styled.div`
   .menu-item:visited {
     font-size: 8rem;
     line-height: 9.6rem;
-    font-weight: bold;
     color: ${theme.text.main};
     margin-bottom: 14px;
     cursor: pointer;
@@ -177,10 +180,6 @@ const TopNav = styled.div`
   position: absolute;
   top: 35px;
   margin: 0 auto;
-
-  @media (min-width: 1200px) {
-    /* right: 20rem; */
-  }
 `
 const TopNavInner = styled.div`
   justify-content: flex-end;
@@ -214,6 +213,7 @@ const TopNavInner = styled.div`
     transition: ease-out 0.3s;
     margin: 0 auto;
     border-radius: 16px;
+    width: ${props => (props.activeLink ? "100%" : "0%")};
   }
   & .top-item:hover::after,
   & .top-item:active::after,

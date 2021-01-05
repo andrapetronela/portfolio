@@ -143,7 +143,6 @@ const Text = styled.div`
     left: 0;
   }
   & h5 {
-    font-weight: 600;
     margin-bottom: 8px;
   }
 `

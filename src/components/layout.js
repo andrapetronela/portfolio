@@ -7,19 +7,21 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
 
 import "./layout.css"
-import theme from "../shared/theme"
+import Footer from "./Footer/Footer"
+import Navigation from "./Navigation/Navigation"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, activeLink }) => {
   return (
     <>
       <link rel="stylesheet" href="https://use.typekit.net/gsn7exd.css" />
+      <link rel="stylesheet" href="https://use.typekit.net/gsn7exd.css" />
 
       <div>
+        <Navigation activeLink={activeLink} />
         <main>{children}</main>
-        <footer>© {new Date().getFullYear()}</footer>
+        <Footer />
       </div>
     </>
   )

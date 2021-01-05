@@ -23,7 +23,7 @@ interface ICont {
 }
 const Container = styled.div<ICont>`
   display: flex;
-  justify-content: ${props => (props.left ? "left" : "center")};
+  justify-content: ${props => (props.left ? "flex-start" : "center")};
   flex-direction: ${props => props.columns && "column"};
   width: 100%;
   max-width: 1200px;

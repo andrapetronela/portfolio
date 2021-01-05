@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
-import theme from "../../shared/theme"
 import a1 from "../../images/animation/a1.svg"
 import a2 from "../../images/animation/a2.svg"
 import a3 from "../../images/animation/a3.svg"
@@ -105,7 +104,6 @@ const Text = styled.div`
     left: 0;
   }
   & h5 {
-    font-weight: 600;
     margin-bottom: 8px;
   }
 `
