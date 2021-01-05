@@ -47,7 +47,7 @@ const Container = styled.section`
 const HelloImg = styled.img<IHello>`
   margin-left: auto;
   @media (min-width: 1024px) {
-    transition: all 1s ease;
+    transition: transform 1s ease;
     max-width: 100%;
     height: auto;
     position: absolute;

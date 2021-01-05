@@ -32,48 +32,53 @@ import img27 from "../../images/bridge/27.jpg"
 import img28 from "../../images/bridge/28.jpg"
 import img29 from "../../images/bridge/29.jpg"
 import img30 from "../../images/bridge/30.jpg"
-import img31 from "../../images/bridge/31.jpg"
-import img32 from "../../images/bridge/32.jpg"
+import img31 from "../../images/bridge/32.jpg"
+import img32 from "../../images/bridge/31.jpg"
 const HomepageHeader = () => {
   return (
     <MainGrid>
       <Container>
         <Col>
-          <h1>Bridge the gap between design & development</h1>
+          <h1>
+            Bridge the gap between <span>design</span> &{" "}
+            <span>development</span>
+          </h1>
         </Col>
         <ColAnim>
-          <Row src={img32} alt="Bridge wood illustration" />
-          <Row src={img31} alt="Bridge wood illustration" />
-          <Row src={img30} alt="Bridge wood illustration" />
-          <Row src={img29} alt="Bridge wood illustration" />
-          <Row src={img28} alt="Bridge wood illustration" />
-          <Row src={img27} alt="Bridge wood illustration" />
+          <Row src={img1} alt="Bridge wood illustration" delay="2.4s" />
+          <Row src={img2} alt="Bridge wood illustration" delay="2.3s" />
+          <Row src={img3} alt="Bridge wood illustration" delay="2.2s" />
+
+          <Row src={img4} alt="Bridge wood illustration" delay="2.1s" />
+          <Row src={img5} alt="Bridge wood illustration" delay="2s" />
+          <Row src={img6} alt="Bridge wood illustration" delay="1.9s" />
+          <Row src={img7} alt="Bridge wood illustration" delay="1.8s" />
+          <Row src={img8} alt="Bridge wood illustration" delay="1.7s" />
+          <Row src={img9} alt="Bridge wood illustration" delay="1.6s" />
+          <Row src={img10} alt="Bridge wood illustration" delay="1.5s" />
+          <Row src={img11} alt="Bridge wood illustration" delay="1.4s" />
+          <Row src={img12} alt="Bridge wood illustration" delay="1.3s" />
+          <Row src={img13} alt="Bridge wood illustration" delay="1.2s" />
+          <Row src={img14} alt="Bridge wood illustration" delay="1.1s" />
+          <Row src={img15} alt="Bridge wood illustration" delay="1s" />
+          <Row src={img16} alt="Bridge wood illustration" delay="0.9s" />
+          <Row src={img17} alt="Bridge wood illustration" delay="0.8s" />
+          <Row src={img18} alt="Bridge wood illustration" delay="0.7s" />
+          <Row src={img19} alt="Bridge wood illustration" delay="0.6s" />
+          <Row src={img20} alt="Bridge wood illustration" delay="0.5s" />
+          <Row src={img21} alt="Bridge wood illustration" delay="0.4s" />
+          <Row src={img22} alt="Bridge wood illustration" delay="0.3s" />
+          <Row src={img23} alt="Bridge wood illustration" delay="0.2s" />
+          <Row src={img24} alt="Bridge wood illustration" delay="0.1s" />
+
+          {/* <Row src={img25} alt="Bridge wood illustration" />
           <Row src={img26} alt="Bridge wood illustration" />
-          <Row src={img25} alt="Bridge wood illustration" />
-          <Row src={img24} alt="Bridge wood illustration" />
-          <Row src={img23} alt="Bridge wood illustration" />
-          <Row src={img22} alt="Bridge wood illustration" />
-          <Row src={img21} alt="Bridge wood illustration" />
-          <Row src={img20} alt="Bridge wood illustration" />
-          <Row src={img19} alt="Bridge wood illustration" />
-          <Row src={img18} alt="Bridge wood illustration" />
-          <Row src={img17} alt="Bridge wood illustration" />
-          <Row src={img16} alt="Bridge wood illustration" />
-          <Row src={img15} alt="Bridge wood illustration" />
-          <Row src={img14} alt="Bridge wood illustration" />
-          <Row src={img13} alt="Bridge wood illustration" />
-          <Row src={img12} alt="Bridge wood illustration" />
-          <Row src={img11} alt="Bridge wood illustration" />
-          <Row src={img10} alt="Bridge wood illustration" />
-          <Row src={img9} alt="Bridge wood illustration" />
-          <Row src={img8} alt="Bridge wood illustration" />
-          <Row src={img7} alt="Bridge wood illustration" />
-          <Row src={img6} alt="Bridge wood illustration" />
-          <Row src={img5} alt="Bridge wood illustration" />
-          <Row src={img4} alt="Bridge wood illustration" />
-          <Row src={img3} alt="Bridge wood illustration" />
-          <Row src={img2} alt="Bridge wood illustration" />
-          <Row src={img1} alt="Bridge wood illustration" />
+          <Row src={img27} alt="Bridge wood illustration" /> */}
+          {/* <Row src={img28} alt="Bridge wood illustration" />
+          <Row src={img29} alt="Bridge wood illustration" />
+          <Row src={img30} alt="Bridge wood illustration" />
+          <Row src={img31} alt="Bridge wood illustration" />
+          <Row src={img32} alt="Bridge wood illustration" /> */}
         </ColAnim>
       </Container>
     </MainGrid>
@@ -98,15 +103,10 @@ const Container = styled.section`
   }
 
   & span {
-    background: ${theme.text.main};
-    color: ${theme.background.light};
-    padding: 0 1rem;
-    @media (max-width: 1024px) {
-      padding: 0 0.5rem;
-    }
+    font-style: italic;
 
     &::selection {
-      color: #aa857f;
+      color: ${theme.accent};
     }
   }
 `
@@ -119,8 +119,8 @@ const Col = styled.div`
     }
   }
   @media (min-width: 1024px) {
-    width: 70%;
-    margin-left: 10rem;
+    width: 60%;
+    /* margin-left: 10rem; */
   }
 `
 
@@ -133,10 +133,20 @@ const ColAnim = styled.div`
   position: relative;
   width: 100%;
   margin-bottom: 5rem;
+  perspective: 1000px;
   @media (min-width: 1024px) {
     margin-bottom: 0;
     width: 40%;
   }
 `
+interface IRow {
+  delay: string
+}
+const Row = styled.img<IRow>`
+  animation: floatMobile 10s ease infinite alternate ${props => props.delay};
 
-const Row = styled.img``
+  opacity: 0;
+  @media (min-width: 768px) {
+    animation: float 12s ease infinite alternate ${props => props.delay};
+  }
+`
