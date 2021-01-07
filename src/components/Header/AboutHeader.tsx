@@ -2,11 +2,11 @@ import React from "react"
 import MainGrid from "../../shared/MainGrid"
 import styled from "styled-components"
 import theme from "../../shared/theme"
-import circle1 from "../../images/about-circles/circle1.svg"
-import circle2 from "../../images/about-circles/circle2.svg"
-import circle3 from "../../images/about-circles/circle3.svg"
-import circle4 from "../../images/about-circles/circle4.svg"
-import circle5 from "../../images/about-circles/circle5.svg"
+import circle1 from "../../images/about-circles/circles-02.svg"
+import circle2 from "../../images/about-circles/circles-03.svg"
+import circle3 from "../../images/about-circles/circles-04.svg"
+import circle4 from "../../images/about-circles/circles-05.svg"
+// import circle5 from "../../images/about-circles/circles-06.svg"
 
 const AboutHeader = () => {
   return (
@@ -21,7 +21,7 @@ const AboutHeader = () => {
             <Circle src={circle2} alt="Circle" delay="0.4s" timing="0.6s" />
             <Circle src={circle3} alt="Circle" delay="0.8s" timing="0.8s" />
             <Circle src={circle4} alt="Circle" delay="1.2s" timing="1s" />
-            <Circle src={circle5} alt="Circle" delay="1.6s" timing="1.2s" />
+            {/* <Circle src={circle5} alt="Circle" delay="1.6s" timing="1.2s" /> */}
           </BricksWrapper>
         </ColAnim>
       </Container>
@@ -33,10 +33,11 @@ export default AboutHeader
 
 const Container = styled.section`
   width: 100%;
-  padding: 8rem 0 25rem;
+  padding: 5rem 0;
   position: relative;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  align-items: center;
   @media (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-between;
@@ -60,7 +61,9 @@ const Container = styled.section`
   }
 `
 const Col = styled.div`
+  padding-bottom: 5rem;
   @media (min-width: 1024px) {
+    padding-bottom: 0;
     width: 45%;
   }
 `
@@ -69,10 +72,12 @@ const ColAnim = styled.div`
   display: flex;
   align-items: center;
   padding: 0 2px;
-  height: 50rem;
-  width: 100%;
+  height: 60vw;
+  width: 80%;
+  margin: 0 auto;
   margin-bottom: 5rem;
   @media (min-width: 1024px) {
+    height: 50rem;
     margin-bottom: 0;
     width: 50%;
   }
@@ -91,13 +96,14 @@ interface ICircle {
 }
 const Circle = styled.img<ICircle>`
   position: absolute;
-  perspective: 1000px;
   transform: scale(0);
   transition: all 2s ease;
   opacity: 0;
   top: 0%;
   left: 0%;
-  animation: rotate 20s ease-in infinite ${props => props.delay};
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  animation: rotateY 10s ease-in infinite ${props => props.delay};
   &::selection {
     color: ${theme.accent};
   }

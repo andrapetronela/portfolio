@@ -127,7 +127,7 @@ const ColLogo = styled.div`
 
 const Circle = styled.img`
   width: 100%;
-  animation: rotate 20s linear infinite reverse;
+  animation: rotateFooterLogo 20s linear infinite reverse;
   &::selection {
     color: white;
   }
