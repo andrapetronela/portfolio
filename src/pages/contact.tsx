@@ -11,8 +11,8 @@ import ContactBanner from "../components/ContactBanner/ContactBanner"
 const Contact = () => (
   <Layout activeLink="contact">
     <SEO title="Contact" />
-    <AboutHeader />
-    <ContactBanner nobackground primaryBtn />
+    <AboutHeader title="Contact" animation="rotateX" />
+    <ContactBanner nobackground primaryBtn contact />
   </Layout>
 )
 

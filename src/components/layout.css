@@ -150,8 +150,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: semplicitapro, sans-serif;
-  font-weight: 400;
   font-family: freight-display-pro, serif;
   font-weight: 300;
   letter-spacing: 0.8px;
@@ -366,5 +364,47 @@ li::selection {
   100% {
     opacity: 1;
     transform: rotate3d(0, 0, 0, -90deg) scale(0.4);
+  }
+}
+
+@keyframes rotateX {
+  0% {
+    opacity: 1;
+    transform: rotate3d(0, 0, 0, -90deg) scale(0.4);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate3d(0, 1, 0, 180deg) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate3d(0, 0, 0, -90deg) scale(0.4);
+  }
+}
+
+@keyframes rotateZ {
+  0% {
+    transform: rotate3d(0, 0, 0, -270deg) scale(0.4);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate3d(0, 1, 0, 360deg) scale(0.8);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, -270deg) scale(0.4);
+    opacity: 1;
+  }
+}
+
+@keyframes growLine {
+  0% {
+    transform: scaleY(0.3);
+    background: #e9c255;
+  }
+
+  100% {
+    transform: scaleY(1);
+    background: #221917;
   }
 }

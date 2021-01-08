@@ -13,19 +13,59 @@ const Footer = () => {
         <Container>
           <ColLinks>
             <Heading>Navigate</Heading>
-            <a href="/about">About</a>
+            <a
+              href={
+                process.env.BASE === "/"
+                  ? "/about"
+                  : process.env.BASE + "/about"
+              }
+            >
+              About
+            </a>
             <a href="/#process">Process</a>
-            <a href="/projects">Projects</a>
+            <a
+              href={
+                process.env.BASE === "/"
+                  ? "/projects"
+                  : process.env.BASE + "/projects"
+              }
+            >
+              Projects
+            </a>
             <a href="/#skills">Skills</a>
-            <a href="/contact">Contact</a>
+            <a
+              href={
+                process.env.BASE === "/"
+                  ? "/contact"
+                  : process.env.BASE + "/contact"
+              }
+            >
+              Contact
+            </a>
           </ColLinks>
           <ColLinks>
             <Heading>Social</Heading>
-            <a href="/about">Github</a>
-            <a href="/about">Instagram</a>
-            <a href="/about">Twitter</a>
-            <a href="/about">Linkedin</a>
-            <a href="/about">Behance</a>
+            <a href="https://github.com/andrapetronela" target="_blank">
+              Github
+            </a>
+            <a
+              href="https://www.instagram.com/andrastrachinaru/"
+              target="_blank"
+            >
+              Instagram
+            </a>
+            <a href="https://twitter.com/andraStrc" target="_blank">
+              Twitter
+            </a>
+            <a
+              href="https://uk.linkedin.com/in/andra-strachinaru/en-us"
+              target="_blank"
+            >
+              Linkedin
+            </a>
+            <a href="https://www.behance.net/andra-strachinaru" target="_blank">
+              Behance
+            </a>
           </ColLinks>
           <ColLogo>
             <Circle

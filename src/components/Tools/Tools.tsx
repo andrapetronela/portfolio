@@ -9,7 +9,7 @@ interface ITools {
 const Tools = ({ isVisible }: ITools) => {
   return (
     <SmallGrid columns>
-      <Outer>
+      <Outer id="skills">
         <Heading isVisible={isVisible}>Tools</Heading>
         <Inner>
           <Container>
@@ -54,14 +54,18 @@ const Tools = ({ isVisible }: ITools) => {
               <p>
                 React<b>JS</b>
               </p>
-              <p>Gatsby</p>
+              <p>
+                <b>G</b>atsby
+              </p>
               <p>
                 Styled <b> Components</b>
               </p>
               <p>
                 Graph<b>QL</b>
               </p>
-              <p>Github</p>
+              <p>
+                <b>Git</b>hub
+              </p>
             </Col>
           </Container>
         </Inner>

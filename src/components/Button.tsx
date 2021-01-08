@@ -22,7 +22,7 @@ const Button: FunctionComponent<IButton> = ({
       color={color}
       colorHover={colorHover}
       marginTop={marginTop}
-      href={href}
+      href={process.env.BASE === "/" ? href : process.env.BASE + href}
     >
       {text}
     </Wrapper>

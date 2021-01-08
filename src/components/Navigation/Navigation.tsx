@@ -5,15 +5,19 @@ import MainGrid from "../../shared/MainGrid"
 import theme from "../../shared/theme"
 import line from "../../images/line-menu.svg"
 
-const Navigation = ({ activeLink }) => {
+interface INav {
+  activeLink: string
+}
+const Navigation = ({ activeLink }: INav) => {
   const [menuOpen, openMenu] = useState(false)
+  console.log(activeLink)
   return (
     <Container>
       <MainGrid>
         <Sticky open={menuOpen}>
           <MainGrid>
             <Inner>
-              <a href="/">
+              <a href={process.env.BASE}>
                 <Logo src={logo} alt="Logo - Andra" />
               </a>
               <Menu onClick={() => openMenu(!menuOpen)}>
@@ -24,44 +28,87 @@ const Navigation = ({ activeLink }) => {
           </MainGrid>
         </Sticky>
         <BurgerMenu open={menuOpen}>
-          <a
-            href="/about"
+          <BurgerLink
+            href={
+              process.env.BASE === "/" ? "/about" : process.env.BASE + "/about"
+            }
             className="menu-item"
             activeLink={activeLink === "about"}
           >
             About
-          </a>
-          <a href="/#process" className="menu-item">
+          </BurgerLink>
+          <BurgerLink
+            href={process.env.BASE + "#process"}
+            className="menu-item"
+          >
             Process
-          </a>
-          <a href="/#skills" className="menu-item">
+          </BurgerLink>
+          <BurgerLink href={process.env.BASE + "#skills"} className="menu-item">
             Skills
-          </a>
-          <a href="/projects" className="menu-item">
+          </BurgerLink>
+          <BurgerLink
+            href={
+              process.env.BASE === "/"
+                ? "/projects"
+                : process.env.BASE + "/projects"
+            }
+            className="menu-item"
+          >
             Projects
-          </a>
-          <a href="/contact" className="menu-item">
+          </BurgerLink>
+          <BurgerLink
+            href={
+              process.env.BASE === "/"
+                ? "/contact"
+                : process.env.BASE + "/contact"
+            }
+            className="menu-item"
+          >
             Contact
-          </a>
+          </BurgerLink>
         </BurgerMenu>
 
         <TopNav>
           <TopNavInner open={menuOpen}>
-            <a href="/about" className="top-item">
+            <TopLink
+              href={
+                process.env.BASE === "/"
+                  ? "/about"
+                  : process.env.BASE + "/about"
+              }
+              className="top-item"
+              activeLink={activeLink === "about"}
+            >
               About
-            </a>
-            <a href="/#process" className="top-item">
+            </TopLink>
+            <TopLink href={process.env.BASE + "#process"} className="top-item">
               Process
-            </a>
-            <a href="/#skills" className="top-item">
+            </TopLink>
+            <TopLink href={process.env.BASE + "#skills"} className="top-item">
               Skills
-            </a>
-            <a href="/projects" className="top-item">
+            </TopLink>
+            <TopLink
+              href={
+                process.env.BASE === "/"
+                  ? "/projects"
+                  : process.env.BASE + "/projects"
+              }
+              className="top-item"
+              activeLink={activeLink === "projects"}
+            >
               Projects
-            </a>
-            <a href="/contact" className="top-item">
+            </TopLink>
+            <TopLink
+              href={
+                process.env.BASE === "/"
+                  ? "/contact"
+                  : process.env.BASE + "/contact"
+              }
+              className="top-item"
+              activeLink={activeLink === "contact"}
+            >
               Contact
-            </a>
+            </TopLink>
           </TopNavInner>
         </TopNav>
       </MainGrid>
@@ -75,8 +122,10 @@ const Container = styled.div`
   position: relative;
   margin-bottom: 85px;
 `
-
-const Sticky = styled.div`
+interface ISticky {
+  open?: boolean
+}
+const Sticky = styled.div<ISticky>`
   border-bottom: ${props =>
     props.open ? "none" : `1px solid ${theme.text.second}`};
   background: ${theme.background.light};
@@ -106,7 +155,7 @@ const Menu = styled.div`
   cursor: pointer;
 `
 
-const Line = styled.img`
+const Line = styled.img<ISticky>`
   transform-origin: center center;
   transition: all 0.5s ease 0s;
   user-select: none;
@@ -123,7 +172,7 @@ const LineSecond = styled(Line)`
       : "translate3d(0px, 15px, 0px) rotate(0deg);"};
 `
 
-const BurgerMenu = styled.div`
+const BurgerMenu = styled.div<ISticky>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -141,9 +190,17 @@ const BurgerMenu = styled.div`
   transition: top 1.2s cubic-bezier(0.25, 1, 0.5, 1);
   overflow-y: scroll;
   padding-bottom: 15rem;
-  & .menu-item,
-  .menu-item:link,
-  .menu-item:visited {
+`
+
+interface ITopNav {
+  activeLink?: boolean
+  open?: boolean
+}
+
+const BurgerLink = styled.a<ITopNav>`
+  &,
+  :link,
+  :visited {
     font-size: 8rem;
     line-height: 9.6rem;
     color: ${theme.text.main};
@@ -156,7 +213,7 @@ const BurgerMenu = styled.div`
     }
   }
 
-  & .menu-item::after {
+  &::after {
     position: absolute;
     content: " ";
     height: 4px;
@@ -167,30 +224,34 @@ const BurgerMenu = styled.div`
     transition: ease-out 0.5s;
     margin: 0 auto;
     border-radius: 16px;
+    width: ${props => (props.activeLink ? "100%" : "0%")};
   }
-  & .menu-item:hover::after,
-  & .menu-item:active::after,
-  & .menu-item:focus::after {
+  &:hover::after,
+  &:active::after,
+  &:focus::after {
     width: 100%;
   }
 `
-const TopNav = styled.div`
+
+const TopNav = styled.div<ITopNav>`
   width: 70%;
   max-width: 1000px;
   position: absolute;
   top: 35px;
   margin: 0 auto;
 `
-const TopNavInner = styled.div`
+const TopNavInner = styled.div<ISticky>`
   justify-content: flex-end;
   display: none;
 
   @media (min-width: 1024px) {
     display: ${props => (props.open ? "none" : "flex")};
   }
-  & .top-item,
-  & .top-item:link,
-  & .top-item:visited {
+`
+const TopLink = styled.a<ITopNav>`
+  &,
+  &:link,
+  &:visited {
     z-index: 40;
     margin-right: 3rem;
     cursor: pointer;
@@ -202,7 +263,7 @@ const TopNavInner = styled.div`
     }
   }
 
-  & .top-item::after {
+  &::after {
     position: absolute;
     content: " ";
     height: 2px;
@@ -215,9 +276,8 @@ const TopNavInner = styled.div`
     border-radius: 16px;
     width: ${props => (props.activeLink ? "100%" : "0%")};
   }
-  & .top-item:hover::after,
-  & .top-item:active::after,
-  & .top-item:focus::after {
+  &:hover::after,
+  &:focus::after {
     width: 100%;
   }
 `

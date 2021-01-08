@@ -11,15 +11,13 @@ const DescPassions = ({ isVisible }: IDesc) => {
     <SmallGrid>
       <Container>
         <Col>
-          Working in a digital agency as a <b>Front End Developer</b> has
-          offered me the <b>opportunity</b> of contributing to multiple projects
-          where the <b>user</b> is the <b>key to success</b>. I learnt how to
-          meet client's <b>expectations</b>, how to make the user engage with a{" "}
-          <b>website</b> and I had a chance to expand my <b>passion</b> for{" "}
-          <b>aesthetics</b> and <b>animations</b>.
+          I like to <b>travel</b> and to meet new people. I could spend months
+          on a <b>beech</b> and enjoying the <b>sun</b>, whilst I listen to best{" "}
+          <b>house</b> music. <b>Photography</b> plays an important role, as it
+          helps me keeping <b>memories</b> actual.
         </Col>
         <Sticky isVisible={isVisible}>
-          <h2>Work</h2>
+          <h2>Outside work</h2>
         </Sticky>
       </Container>
     </SmallGrid>

@@ -3,56 +3,27 @@ import styled from "styled-components"
 import MainGrid from "../../shared/MainGrid"
 import theme from "../../shared/theme"
 import Button from "../Button"
-import img1 from "../../images/projects/movie-poster.png"
-import img2 from "../../images/projects/pet-logo.jpg"
-import img3 from "../../images/projects/calculator.png"
-import img4 from "../../images/projects/poster-design.jpg"
-import img5 from "../../images/projects/second-life.png"
-import img6 from "../../images/projects/magazine.jpg"
-import img7 from "../../images/projects/war.jpg"
-import img8 from "../../images/projects/bird.png"
-import img9 from "../../images/projects/glitch.png"
 
-const HpGridProjects = () => {
+interface Item {
+  img: string
+  alt: string
+}
+interface HpGrid {
+  data: Array<Item>
+}
+const HpGridProjects = ({ data }: HpGrid) => {
   return (
     <MainGrid>
       <Inner>
         <Grid>
-          <figure>
-            <img src={img4} alt="Poster design final" />
-          </figure>
-
-          <figure>
-            <img src={img9} alt="Glitch effect" />
-          </figure>
-
-          <figure>
-            <img src={img6} alt="Magazine" />
-          </figure>
-
-          <figure>
-            <img src={img3} alt="Calculator mortgage final" />
-          </figure>
-
-          <figure>
-            <img src={img8} alt="Bird final" />
-          </figure>
-
-          <figure>
-            <img src={img5} alt="Second life - product page final" />
-          </figure>
-
-          <figure>
-            <img src={img2} alt="sf" />
-          </figure>
-
-          <figure>
-            <img src={img7} alt="sf" />
-          </figure>
-
-          <figure>
-            <img src={img1} alt="sf" />
-          </figure>
+          {data &&
+            data.map((item, key) => {
+              return (
+                <figure key={key}>
+                  <img src={item.img} alt={item.alt} />
+                </figure>
+              )
+            })}
         </Grid>
         <Button href="/projects" text="View more" marginTop="40px" />
       </Inner>
