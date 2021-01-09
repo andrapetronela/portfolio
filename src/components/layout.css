@@ -400,11 +400,11 @@ li::selection {
 @keyframes growLine {
   0% {
     transform: scaleY(0.3);
-    background: #e9c255;
+    background: #fafafc;
   }
 
   100% {
     transform: scaleY(1);
-    background: #221917;
+    background: #e9c255;
   }
 }

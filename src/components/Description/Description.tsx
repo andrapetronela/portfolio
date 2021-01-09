@@ -20,12 +20,16 @@ const Description = ({ isVisible }: IDesc) => {
           </h4>
         </Sticky>
         <Col>
-          Some say I might be a <b>Unicorn</b>. Others call people like me a{" "}
-          <b>hybrid</b>. Most are often confused and they think{" "}
-          <b>UX Developer</b> really exists … Truth is … I am Andra - a{" "}
-          <b>Front End developer</b> with a keen eye for <b>aesthetics</b>,
-          eager to discover the latest <b>typography</b> trends, <b>colour</b>{" "}
-          schemes and <b>motion graphics</b>.
+          <p>
+            {" "}
+            Some say I might be a <b>Unicorn</b>. Others call people like me a{" "}
+            <b>hybrid</b>. Most are often confused and they think{" "}
+            <b>UX Developer</b> really exists … Truth is … I am Andra - a{" "}
+            <b>Front End developer</b> with a keen eye for <b>aesthetics</b>,
+            eager to discover the latest <b>typography</b> trends, <b>colour</b>{" "}
+            schemes and <b>motion graphics</b>.
+          </p>
+
           <Button text="Read more" marginTop="40px" href="/about" />
         </Col>
       </Container>
@@ -67,7 +71,7 @@ const Sticky = styled.div<ISticky>`
     position: absolute;
     content: " ";
     height: 2px;
-    width: ${props => (props.isVisible ? "90%" : "0%")};
+    width: ${props => (props.isVisible ? "100%" : "0%")};
     bottom: -20px;
     left: 0;
     background: ${theme.text.main};
@@ -77,12 +81,18 @@ const Sticky = styled.div<ISticky>`
   }
 
   @media (min-width: 768px) {
+    width: 50%;
+  }
+  @media (min-width: 1024px) {
     width: 48%;
   }
 `
 const Col = styled.div`
   @media (min-width: 768px) {
     padding-top: 50rem;
+    width: 45%;
+  }
+  @media (min-width: 1024px) {
     width: 40%;
   }
   &::selection {

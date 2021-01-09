@@ -160,9 +160,15 @@ const ColLogo = styled.div`
   align-items: center;
   position: relative;
   margin-left: auto;
-  width: 120px;
-  height: 120px;
-  margin-right: 5px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 120px;
+    height: 120px;
+    margin-right: 5px;
+  }
 `
 
 const Circle = styled.img`

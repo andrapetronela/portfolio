@@ -59,7 +59,7 @@ const Sticky = styled.div<ISticky>`
     position: absolute;
     content: " ";
     height: 2px;
-    width: ${props => (props.isVisible ? "90%" : "0%")};
+    width: ${props => (props.isVisible ? "100%" : "0%")};
     bottom: -20px;
     left: 0;
     background: ${theme.text.main};

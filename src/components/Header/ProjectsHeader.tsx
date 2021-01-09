@@ -15,16 +15,17 @@ const ProjectsHeader = ({ title }: IHeader) => {
         </Col>
         <ColAnim>
           <BricksWrapper>
-            <Brick height={"80%"} delay={"0s"} />
+            <Brick height={"10%"} delay={"0s"} />
             <Brick height={"20%"} delay={"0.2s"} />
-            <Brick height={"60%"} delay={"0.4s"} />
+            <Brick height={"40%"} delay={"0.4s"} />
             <Brick height={"60%"} delay={"0.6s"} />
             <Brick height={"80%"} delay={"0.8s"} />
-            <Brick height={"70%"} delay={"1s"} />
-            <Brick height={"50%"} delay={"1.2s"} />
-            <Brick height={"54%"} delay={"1.4s"} />
-            <Brick height={"28%"} delay={"1.6s"} />
-            <Brick height={"76%"} delay={"1.8s"} />
+            <Brick height={"90%"} delay={"1s"} />
+            <Brick height={"80%"} delay={"1.2s"} />
+            <Brick height={"60%"} delay={"1.4s"} />
+            <Brick height={"40%"} delay={"1.6s"} />
+            <Brick height={"20%"} delay={"1.8s"} />
+            <Brick height={"10%"} delay={"2s"} />
           </BricksWrapper>
         </ColAnim>
       </Container>
@@ -109,7 +110,7 @@ const Brick = styled.div<IBrick>`
   width: 8px;
   height: ${props => props.height};
   border-radius: 100px;
-  background: ${theme.accent};
-  transform: scale(0);
+  background: ${theme.background.light};
+  transform: scaleY(0.3);
   animation: growLine 1s ease-in infinite alternate ${props => props.delay};
 `

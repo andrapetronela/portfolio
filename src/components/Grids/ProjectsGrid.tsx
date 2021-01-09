@@ -3,12 +3,21 @@ import styled from "styled-components"
 import SmallGrid from "../../shared/SmallGrid"
 import theme from "../../shared/theme"
 import Button from "../Button"
-import img1 from "../../images/projects/bird.png"
-import img2 from "../../images/projects/bird.png"
-import img3 from "../../images/projects/bird.png"
+import img1 from "../../images/projects/design/secondlife01.jpg"
+import img2 from "../../images/projects/design/secondlife02.jpg"
+import img3 from "../../images/projects/design/secondlife03.jpg"
+import img3a from "../../images/projects/design/secondlife03a.jpg"
 
 import img4 from "../../images/projects/dev/whiteco.jpg"
 import img5 from "../../images/projects/dev/wytes.jpg"
+import img6 from "../../images/projects/dev/trinity.jpg"
+import img7 from "../../images/projects/dev/wam.jpg"
+import img8 from "../../images/projects/dev/trado.jpg"
+
+import calc01 from "../../images/projects/design/calculator01.jpg"
+import calc02 from "../../images/projects/design/calculator02.jpg"
+import calc03 from "../../images/projects/design/calculator03.jpg"
+import calc03a from "../../images/projects/design/calculator03a.jpg"
 
 interface Item {
   img: string
@@ -24,6 +33,8 @@ interface Project {
   description: string
   gridImages?: Array<string>
   link?: string
+  designMain?: string
+  tools?: string
 }
 
 const tabs = [{ heading: "Web development" }, { heading: "Web design" }]
@@ -35,20 +46,55 @@ const section = [
       link: "https://www.whiteandcodental.co.uk/",
       mainImage: img4,
       description:
-        "Translating desing into React components, Translating desing into React components, Translating desing into React components",
+        "Translating design into development wireframes, defining components and establishing relationship between them. Building front end components following wireframes. Styling components according to design, CMS integration, website performance improvement.",
     },
     {
       heading: "Wytes",
       link: "https://www.wytes.co.uk/",
       mainImage: img5,
-      description: "Translating desing into React components",
+      description:
+        "Building front end components following wireframes. Styling components according to design. Created animated background gradients and custom CSS animations.",
+    },
+    {
+      heading: "Trinity Claims",
+      link: "http://www.trinityclaims.co.uk/",
+      mainImage: img6,
+      dark: true,
+      description:
+        "Translating design into development wireframes and defining components. Building front end components following wireframes. Styling components according to design. ",
+    },
+    {
+      heading: "Trado",
+      link: "https://apps.apple.com/gb/app/trado/id1497693898",
+      mainImage: img8,
+      description:
+        "Building front end React Native components following wireframes. Styling components according to design. ",
+    },
+    {
+      heading: "We are marmalade",
+      link: "https://www.wearemarmalade.co.uk/",
+      mainImage: img7,
+      description:
+        "Building front end components following wireframes. Styling components according to design. ",
     },
   ],
   [
     {
-      heading: "Mortgage Calculator",
-      gridImages: [img1, img2, img3],
-      description: "Concept using AdobXD",
+      heading: "Secondlife",
+      gridImages: [img3a, img2, img3],
+      description:
+        "Mobile marketplace concept that allows its users to sell, buy and swap clothing items and accessories.",
+      designMain: img1,
+      tools: <p className="legal">Adobe XD, Photoshop, Illustrator</p>,
+    },
+
+    {
+      heading: "Mortgage calculator",
+      gridImages: [calc03a, calc02, calc03],
+      description:
+        "Easy to use Mortgage calculator concept - provides visual analysis of a mortgage cost. ",
+      designMain: calc01,
+      tools: <p className="legal">Adobe XD, Illustrator</p>,
     },
   ],
 ]
@@ -80,6 +126,23 @@ const ProjectsGrid = ({ data, noButton }: HpGrid) => {
             return (
               <InnerContainer key={key}>
                 <h2>{item.heading}</h2>
+
+                {item.designMain && (
+                  <DevGrid>
+                    <DesignMain>
+                      <figure>
+                        <img src={item.designMain} />
+                      </figure>
+                    </DesignMain>
+                  </DevGrid>
+                )}
+
+                {item.designMain && (
+                  <Description>
+                    <p>{item.description}</p>
+                    {item.tools && <Tools>{item.tools}</Tools>}
+                  </Description>
+                )}
                 {item.gridImages && (
                   <ProjectGrid>
                     {item.gridImages.map((img: string, key: number) => {
@@ -93,19 +156,20 @@ const ProjectsGrid = ({ data, noButton }: HpGrid) => {
                 )}
 
                 {item.mainImage && (
-                  <DevImage>
-                    <figure>
-                      <a href={item.link} target="_blank">
+                  <DevGrid>
+                    <DevImage>
+                      <figure>
                         <img src={item.mainImage} />
-                        <Blur>
-                          <p>Visit website</p>
-                        </Blur>
-                      </a>
-                    </figure>
-                  </DevImage>
+                      </figure>
+                    </DevImage>
+                    <Description>
+                      <p>{item.description}</p>
+                      <InlineLink href={item.link} target="_blank">
+                        Visit website
+                      </InlineLink>
+                    </Description>
+                  </DevGrid>
                 )}
-
-                <Description>{item.description}</Description>
               </InnerContainer>
             )
           })}
@@ -232,10 +296,8 @@ const Grid = styled.div`
 `
 const Tabs = styled.div`
   display: flex;
-  justify-content: space-between;
 
   @media (min-width: 768px) {
-    justify-content: flex-start;
   }
 `
 
@@ -257,6 +319,7 @@ const Tab = styled.p<ITab>`
   position: relative;
   cursor: pointer;
   text-align: center;
+  margin-right: 5rem;
   &::after {
     position: absolute;
     content: " ";
@@ -290,6 +353,7 @@ const InnerContainer = styled.div`
 `
 
 const ProjectGrid = styled.div`
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 30vw);
@@ -321,13 +385,26 @@ const ProjectGrid = styled.div`
     grid-row: 2 / span 1;
   }
 `
+const DevGrid = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+`
+
 const DevImage = styled.div`
   width: 100%;
-  height: 45vw;
   position: relative;
   overflow: hidden;
-  @media (min-width: 1024px) {
-    height: 52rem;
+  margin-bottom: 2rem;
+  @media (min-width: 768px) {
+    width: 50%;
+    margin-bottom: 0;
   }
 
   & img {
@@ -337,39 +414,55 @@ const DevImage = styled.div`
     display: block;
   }
 `
-const Blur = styled.div`
-  width: 20rem;
-  height: 10rem;
-  background: ${theme.background.light};
-  opacity: 0.8;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  backdrop-filter: blur(18px);
-  transform: scale(0);
-  transition: transform 1s ease;
-  transform-origin: left bottom;
+
+const Description = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
   @media (min-width: 768px) {
-    width: 20%;
-    height: 20%;
-  }
-  ${DevImage}:hover & {
-    transform: scale(1);
-  }
-
-  & p {
-    color: ${theme.text.main};
-    opacity: 1;
+    width: 45%;
   }
 `
-const Description = styled.p`
-  margin-top: 2rem;
+const InlineLink = styled.a`
+  &,
+  &:link,
+  &:visited {
+    color: ${theme.text.main};
+    margin-top: 2rem;
+    text-decoration: none;
+    position: relative;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  &::after {
+    position: absolute;
+    content: " ";
+    height: 2px;
+    width: 0%;
+    bottom: -5px;
+    left: 0;
+    background: ${theme.text.main};
+    transition: cubic-bezier(0.25, 1, 0.5, 1) 0.5s;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
 
+  &:hover::after,
+  &:active::after {
+    width: 100%;
+  }
+`
+const DesignMain = styled(DevImage)`
+  margin-bottom: 8rem;
   @media (min-width: 768px) {
-    width: 50%;
+    width: 100%;
+  }
+`
+const Tools = styled.div`
+  & p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #b6b5b5;
   }
 `

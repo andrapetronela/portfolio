@@ -21,15 +21,9 @@ const ContactBanner = ({ nobackground, primaryBtn, contact }: IContact) => {
           </h5>
         )}
         <Button
-          href={
-            contact
-              ? "mailto:ap.strachinaru@gmail.com"
-              : process.env.BASE === "/"
-              ? "/contact"
-              : process.env.BASE + "/contact"
-          }
-          text="Get in touch"
-          marginTop="0"
+          href={contact ? "mailto:ap.strachinaru@gmail.com" : "/contact"}
+          text={contact ? "Send a message" : "Get in touch"}
+          marginTop="10px"
           color={!primaryBtn && theme.text.second}
           colorHover={!primaryBtn && theme.text.main}
         />
