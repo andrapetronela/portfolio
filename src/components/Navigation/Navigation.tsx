@@ -206,13 +206,18 @@ const BurgerLink = styled.a<ITopNav>`
   &,
   :link,
   :visited {
-    font-size: 8rem;
-    line-height: 9.6rem;
+    font-size: 7rem;
+    line-height: 8.6rem;
     color: ${theme.text.main};
     margin-bottom: 14px;
     cursor: pointer;
     text-decoration: none;
     position: relative;
+
+    @media (min-width: 768px) {
+      font-size: 8rem;
+      line-height: 9.6rem;
+    }
     &::selection {
       color: #aa857f;
     }
