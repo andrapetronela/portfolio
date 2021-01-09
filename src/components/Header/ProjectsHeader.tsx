@@ -112,5 +112,5 @@ const Brick = styled.div<IBrick>`
   border-radius: 100px;
   background: ${theme.background.light};
   transform: scaleY(0.3);
-  animation: growLine 1s ease-in infinite alternate ${props => props.delay};
+  animation: growLine 2s ease-in infinite alternate ${props => props.delay};
 `

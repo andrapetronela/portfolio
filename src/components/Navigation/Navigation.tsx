@@ -40,10 +40,15 @@ const Navigation = ({ activeLink }: INav) => {
           <BurgerLink
             href={process.env.BASE + "#process"}
             className="menu-item"
+            onClick={() => openMenu(!menuOpen)}
           >
             Process
           </BurgerLink>
-          <BurgerLink href={process.env.BASE + "#skills"} className="menu-item">
+          <BurgerLink
+            href={process.env.BASE + "#skills"}
+            className="menu-item"
+            onClick={() => openMenu(!menuOpen)}
+          >
             Skills
           </BurgerLink>
           <BurgerLink

@@ -402,9 +402,12 @@ li::selection {
     transform: scaleY(0.3);
     background: #fafafc;
   }
-
-  100% {
+  50% {
     transform: scaleY(1);
     background: #e9c255;
+  }
+  100% {
+    transform: scaleY(0.3);
+    background: #fafafc;
   }
 }

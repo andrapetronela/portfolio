@@ -44,7 +44,6 @@ const Inner = styled.div`
   max-width: 950px;
   margin: 0 auto;
   padding: 14rem 20px;
-
   & h5 {
     margin-bottom: 20px;
     @media (min-width: 768px) {

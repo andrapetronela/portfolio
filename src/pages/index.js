@@ -17,7 +17,7 @@ import img4 from "../images/projects/poster-design.jpg"
 import img5 from "../images/projects/second-life.png"
 import img6 from "../images/projects/magazine.jpg"
 import img7 from "../images/projects/war.jpg"
-import img8 from "../images/projects/bird.png"
+import img8 from "../images/projects/bird03.jpg"
 import img9 from "../images/projects/glitch.png"
 
 const projectsGridData = [

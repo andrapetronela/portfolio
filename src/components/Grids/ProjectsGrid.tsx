@@ -19,6 +19,11 @@ import calc02 from "../../images/projects/design/calculator02.jpg"
 import calc03 from "../../images/projects/design/calculator03.jpg"
 import calc03a from "../../images/projects/design/calculator03a.jpg"
 
+import furniture03a from "../../images/projects/design/furniture01.jpg"
+import furniture02 from "../../images/projects/design/furniture02.jpg"
+import furniture03 from "../../images/projects/design/furniture03.jpg"
+import furniture04 from "../../images/projects/design/furniture04.jpg"
+
 interface Item {
   img: string
   alt: string
@@ -87,12 +92,18 @@ const section = [
       designMain: img1,
       tools: <p className="legal">Adobe XD, Photoshop, Illustrator</p>,
     },
-
+    {
+      heading: "Maynooth",
+      gridImages: [furniture04, furniture02, furniture03],
+      description: "Maynooth is a furniture shop concept ",
+      designMain: furniture03a,
+      tools: <p className="legal">Adobe XD, Illustrator</p>,
+    },
     {
       heading: "Mortgage calculator",
       gridImages: [calc03a, calc02, calc03],
       description:
-        "Easy to use Mortgage calculator concept - provides visual analysis of a mortgage cost. ",
+        "Mortgage calculator concept - provides visual analysis of a mortgage cost using a modern graph. ",
       designMain: calc01,
       tools: <p className="legal">Adobe XD, Illustrator</p>,
     },
@@ -199,7 +210,6 @@ const Inner = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10rem;
 `
 
 const Grid = styled.div`
