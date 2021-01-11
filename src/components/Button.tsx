@@ -8,6 +8,7 @@ interface IButton {
   colorHover?: string
   marginTop: string
   href: string
+  contact?: boolean
 }
 
 const Button: FunctionComponent<IButton> = ({
@@ -16,13 +17,20 @@ const Button: FunctionComponent<IButton> = ({
   colorHover,
   marginTop,
   href,
+  contact,
 }) => {
   return (
     <Wrapper
       color={color}
       colorHover={colorHover}
       marginTop={marginTop}
-      href={process.env.BASE === "/" ? href : process.env.BASE + href}
+      href={
+        contact
+          ? "mailto:ap.strachinaru@gmail.com"
+          : process.env.BASE === "/"
+          ? href
+          : process.env.BASE + href
+      }
     >
       {text}
     </Wrapper>
