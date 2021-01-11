@@ -33,15 +33,6 @@ const Footer = () => {
               Projects
             </a>
             <a href="/#skills">Skills</a>
-            <a
-              href={
-                process.env.BASE === "/"
-                  ? "/contact"
-                  : process.env.BASE + "/contact"
-              }
-            >
-              Contact
-            </a>
           </ColLinks>
           <ColLinks>
             <Heading>Social</Heading>
@@ -53,9 +44,6 @@ const Footer = () => {
               target="_blank"
             >
               Instagram
-            </a>
-            <a href="https://twitter.com/andraStrc" target="_blank">
-              Twitter
             </a>
             <a
               href="https://uk.linkedin.com/in/andra-strachinaru/en-us"
@@ -71,7 +59,6 @@ const Footer = () => {
             <Circle
               src={circle}
               alt="Building memorable experiences with a designer eye"
-              className="tween"
             />
 
             <Logo src={a} alt="Andra" />
@@ -88,13 +75,20 @@ const Footer = () => {
 export default Footer
 
 const Inner = styled.div`
-  padding: 15rem 0 5rem;
+  padding: 5rem 0 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
   & .legal {
-    margin: 10rem auto 0;
+    margin: 5rem auto 0;
+    @media (min-width: 768px) {
+      margin: 10rem auto 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 15rem 0 5rem;
   }
 `
 
@@ -153,6 +147,10 @@ const ColLinks = styled.div`
 const Heading = styled.p`
   font-weight: bold;
   margin-bottom: 2rem;
+  @media (max-width: 767px) {
+    font-size: 14px;
+    line-height: 24px;
+  }
 `
 const ColLogo = styled.div`
   display: flex;

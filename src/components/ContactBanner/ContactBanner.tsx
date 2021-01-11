@@ -6,23 +6,18 @@ import Button from "../Button"
 interface IContact {
   nobackground?: boolean
   primaryBtn?: boolean
-  contact?: boolean
 }
-const ContactBanner = ({ nobackground, primaryBtn, contact }: IContact) => {
+const ContactBanner = ({ nobackground, primaryBtn }: IContact) => {
   return (
-    <Container nobackground={nobackground}>
+    <Container nobackground={nobackground} id="contact">
       <Inner>
-        {contact ? (
-          <h5> Drop me your message and I will be in touch very shortly.</h5>
-        ) : (
-          <h5>
-            Do you have a business opportunity, or are you just a creative
-            looking to collaborate?
-          </h5>
-        )}
+        <h5>
+          Do you have a business opportunity, or are you just a creative looking
+          to collaborate?
+        </h5>
         <Button
-          href={contact ? "mailto:ap.strachinaru@gmail.com" : "/contact"}
-          text={contact ? "Send a message" : "Get in touch"}
+          href="mailto:ap.strachinaru@gmail.com"
+          text="Get in touch"
           marginTop="10px"
           color={!primaryBtn && theme.text.second}
           colorHover={!primaryBtn && theme.text.main}

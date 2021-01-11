@@ -33,20 +33,16 @@ const TweenStyled = styled.div`
   }
 
   .n {
-    top: 41px;
     left: -95px;
   }
   .d {
-    top: -41px;
     left: -140px;
   }
   .r {
-    top: 41px;
-    left: 185px;
+    left: 485px;
   }
   .a2 {
-    top: 41px;
-    left: 325px;
+    left: 400px;
   }
 `
 
@@ -55,13 +51,11 @@ const Step3 = () => (
     <div id="name-anim" />
 
     <Controller>
-      <Scene triggerElement="#name-anim" duration={800} offset={20}>
+      <Scene triggerElement="#name-anim" duration={180} offset={20}>
         {progress => (
           <Tween
             to={{
-              top: "63.2%",
               left: "80px",
-              rotation: -360,
               opacity: 1,
             }}
             ease="Strong.easeOut"
@@ -72,14 +66,12 @@ const Step3 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene triggerElement="#name-anim" duration={300} pin={false} offset={20}>
+      <Scene triggerElement="#name-anim" duration={190} pin={false} offset={20}>
         {progress => (
           <Tween
             to={{
               css: {
-                top: "70%",
                 left: "175px",
-                rotation: 360,
                 opacity: 1,
               },
               ease: "Strong.easeOut",
@@ -91,14 +83,12 @@ const Step3 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene triggerElement="#name-anim" duration={400} pin={false} offset={20}>
+      <Scene triggerElement="#name-anim" duration={140} pin={false} offset={20}>
         {progress => (
           <Tween
             to={{
               css: {
                 left: "220px",
-                top: "70%",
-                rotation: -360,
                 opacity: 1,
               },
               ease: "Strong.easeOut",
@@ -110,14 +100,12 @@ const Step3 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene triggerElement="#name-anim" duration={700} pin={false} offset={20}>
+      <Scene triggerElement="#name-anim" duration={210} pin={false} offset={20}>
         {progress => (
           <Tween
             to={{
               css: {
                 left: "260px",
-                top: "70%",
-                rotation: 360,
                 opacity: 1,
               },
               ease: "Strong.easeOut",
@@ -129,14 +117,13 @@ const Step3 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene triggerElement="#name-anim" duration={450} pin={false} offset={20}>
+      <Scene triggerElement="#name-anim" duration={150} pin={false} offset={20}>
         {progress => (
           <Tween
             to={{
               css: {
                 left: "300px",
-                top: "70%",
-                rotation: -360,
+
                 opacity: 1,
               },
               ease: "Strong.easeOut",
@@ -151,13 +138,11 @@ const Step3 = () => (
     </Controller>
     <Text>
       {" "}
-      <h5>Design</h5>
+      <h5>Prototype</h5>
       <p>
-        Either you need a <b>website</b> for your business, or you want to give
-        your old website a <b>modern feeling</b>, the first step in the process
-        should be understanding the <b>problem</b>. From this point, we can find{" "}
-        <b>custom solutions</b> to ensure your users will get <b>the best</b>{" "}
-        out of your products.
+        Evaluating the brand, researching the industry, generating ideas,
+        solutions, sketching and wireframing are all steps that can't be skipped
+        in the process of design.
       </p>
     </Text>
   </TweenStyled>

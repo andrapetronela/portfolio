@@ -22,12 +22,12 @@ const TweenStyled = styled.div`
 
   .letter {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0%;
+    left: -200px;
     opacity: 0;
     transition: all 1s ease;
     width: 0;
-    transform-origin: center;
+    /* transform-origin: center; */
   }
 `
 
@@ -36,14 +36,14 @@ const Step6 = () => (
     <div id="testing-anim" />
 
     <Controller>
-      <Scene triggerElement="#testing-anim" duration={400} offset={100}>
+      <Scene triggerElement="#testing-anim" duration={200} offset={100}>
         {progress => (
           <Tween
             to={{
-              top: "20%",
-              left: "200px",
+              top: "0%",
+              left: "10%",
               opacity: "1",
-              width: "180px",
+              width: "140px",
             }}
             ease="Strong.easeOut"
             totalProgress={progress}
@@ -58,11 +58,9 @@ const Step6 = () => (
       {" "}
       <h5>Testing</h5>
       <p>
-        Either you need a <b>website</b> for your business, or you want to give
-        your old website a <b>modern feeling</b>, the first step in the process
-        should be understanding the <b>problem</b>. From this point, we can find{" "}
-        <b>custom solutions</b> to ensure your users will get <b>the best</b>{" "}
-        out of your products.
+        When the product is built, we test it to identify any browser specific
+        bugs, different screen sizes issues, usability test, accessibility and
+        we start to prepare the website for meeting its real users.
       </p>
     </Text>
   </TweenStyled>

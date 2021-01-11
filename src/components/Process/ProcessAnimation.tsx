@@ -1,9 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import MainGrid from "../../shared/MainGrid"
+import SmallGrid from "../../shared/SmallGrid"
 import theme from "../../shared/theme"
 import Step1 from "./Step1"
-import Step2 from "./Step2"
 import Step3 from "./Step3"
 import Step4 from "./Step4"
 import Step5 from "./Step5"
@@ -13,18 +12,17 @@ import Step7 from "./Step7"
 const ProcessAnimation = () => {
   return (
     <Outer id="process">
-      <MainGrid left>
+      <SmallGrid left>
         <Container>
           <Heading>Process</Heading>
           <Step1 />
-          <Step2 />
           <Step3 />
           <Step4 />
           <Step5 />
           <Step6 />
           <Step7 />
         </Container>
-      </MainGrid>
+      </SmallGrid>
     </Outer>
   )
 }
@@ -32,7 +30,8 @@ const ProcessAnimation = () => {
 export default ProcessAnimation
 
 const Outer = styled.section`
-  display: none;
+  /* display: none; */
+  overflow: hidden;
   @media (min-width: 768px) {
     padding: 15rem 0 0;
     display: block;

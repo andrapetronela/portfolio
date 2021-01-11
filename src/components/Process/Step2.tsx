@@ -24,18 +24,17 @@ const TweenStyled = styled.div`
 
   .letter {
     position: absolute;
-    top: 0;
-    left: 20px;
-    transition: all 0.8s ease;
+    top: 50%50pt;
+    left: -250px;
+    transition: all 1s ease;
     width: 0px;
     height: 0px;
   }
 
   .a2 {
-    left: 120px;
+    left: -220px;
   }
   .a3 {
-    top: 50%;
     left: 0;
   }
 `
@@ -49,11 +48,9 @@ const Step2 = () => (
         {progress => (
           <Tween
             to={{
-              top: "75%",
-              left: "250px",
-              rotation: -360,
-              width: "80px",
-              height: "80px",
+              left: "300px",
+              width: "90px",
+              height: "90px",
             }}
             ease="Strong.easeOut"
             totalProgress={progress}
@@ -63,22 +60,14 @@ const Step2 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene triggerElement="#letters-anim" duration={500} pin={false}>
+      <Scene triggerElement="#letters-anim" duration={300}>
         {progress => (
           <Tween
-            from={{
-              css: {
-                left: "120px",
-                rotation: -360,
-              },
-              ease: "Strong.easeOut",
-            }}
             to={{
               css: {
-                left: "250px",
-                rotation: -180,
-                width: "105px",
-                height: "105px",
+                left: "100px",
+                width: "90px",
+                height: "90px",
               },
               ease: "Strong.easeOut",
             }}
@@ -89,23 +78,14 @@ const Step2 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene triggerElement="#letters-anim" duration={200} pin={false}>
+      <Scene triggerElement="#letters-anim" duration={200}>
         {progress => (
           <Tween
-            from={{
-              css: {
-                left: "250px",
-                top: "50%",
-              },
-              ease: "Strong.easeOut",
-            }}
             to={{
               css: {
-                left: "150px",
-                top: "25%",
-                rotation: -180,
-                width: "150px",
-                height: "150px",
+                left: "200px",
+                width: "90px",
+                height: "90px",
               },
               ease: "Strong.easeOut",
             }}
@@ -121,11 +101,9 @@ const Step2 = () => (
       {" "}
       <h5>Research</h5>
       <p>
-        Either you need a <b>website</b> for your business, or you want to give
-        your old website a <b>modern feeling</b>, the first step in the process
-        should be understanding the <b>problem</b>. From this point, we can find{" "}
-        <b>custom solutions</b> to ensure your users will get <b>the best</b>{" "}
-        out of your products.
+        Studying <b>target</b> users and their requirements, adding realistic{" "}
+        <b>contexts</b> and insights to the process will reveal valuable
+        information which will conduct the <b>design process</b>.
       </p>
     </Text>
   </TweenStyled>

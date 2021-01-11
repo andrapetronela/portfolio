@@ -58,16 +58,14 @@ const Navigation = ({ activeLink }: INav) => {
                 : process.env.BASE + "/projects"
             }
             className="menu-item"
+            activeLink={activeLink === "projects"}
           >
             Projects
           </BurgerLink>
           <BurgerLink
-            href={
-              process.env.BASE === "/"
-                ? "/contact"
-                : process.env.BASE + "/contact"
-            }
+            href={process.env.BASE + "#contact"}
             className="menu-item"
+            onClick={() => openMenu(!menuOpen)}
           >
             Contact
           </BurgerLink>
@@ -104,11 +102,7 @@ const Navigation = ({ activeLink }: INav) => {
               Projects
             </TopLink>
             <TopLink
-              href={
-                process.env.BASE === "/"
-                  ? "/contact"
-                  : process.env.BASE + "/contact"
-              }
+              href={process.env.BASE + "#contact"}
               className="top-item"
               activeLink={activeLink === "contact"}
             >
@@ -150,7 +144,7 @@ const Inner = styled.div`
 `
 
 const Logo = styled.img`
-  height: 35px;
+  height: 30px;
   &::selection {
     color: #aa857f;
   }
@@ -167,14 +161,14 @@ const Line = styled.img<ISticky>`
   transform: ${props =>
     props.open
       ? "translate3d(35px, 10px, 0px) rotate(45deg)"
-      : "translate3d(25px, 5px, 0px) rotate(0deg);"};
+      : "translate3d(25px, 0px, 0px) rotate(0deg);"};
 `
 
 const LineSecond = styled(Line)`
   transform: ${props =>
     props.open
       ? "translate3d(-8px, 10px, 0px) rotate(-45deg);"
-      : "translate3d(0px, 15px, 0px) rotate(0deg);"};
+      : "translate3d(0px, 10px, 0px) rotate(0deg);"};
 `
 
 const BurgerMenu = styled.div<ISticky>`
@@ -188,7 +182,7 @@ const BurgerMenu = styled.div<ISticky>`
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  padding-top: 10rem;
+  padding-top: 8rem;
   top: ${props => (props.open ? "60px" : "-100vh")};
   background-color: ${theme.background.light};
   z-index: 8;
@@ -206,8 +200,8 @@ const BurgerLink = styled.a<ITopNav>`
   &,
   :link,
   :visited {
-    font-size: 7rem;
-    line-height: 8.6rem;
+    font-size: 5rem;
+    line-height: 6.6rem;
     color: ${theme.text.main};
     margin-bottom: 14px;
     cursor: pointer;
@@ -226,7 +220,7 @@ const BurgerLink = styled.a<ITopNav>`
   &::after {
     position: absolute;
     content: " ";
-    height: 4px;
+    height: 2px;
     width: 0%;
     bottom: -1px;
     left: 0;
@@ -247,7 +241,7 @@ const TopNav = styled.div<ITopNav>`
   width: 70%;
   max-width: 1000px;
   position: absolute;
-  top: 35px;
+  top: 30px;
   margin: 0 auto;
 `
 const TopNavInner = styled.div<ISticky>`

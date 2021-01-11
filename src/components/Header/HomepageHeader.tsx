@@ -2,15 +2,8 @@ import React from "react"
 import MainGrid from "../../shared/MainGrid"
 import styled from "styled-components"
 import theme from "../../shared/theme"
-import circle1 from "../../images/about-circles/circles-02.svg"
-import circle2 from "../../images/about-circles/circles-03.svg"
-import circle3 from "../../images/about-circles/circles-04.svg"
-import circle4 from "../../images/about-circles/circles-05.svg"
 
-interface IHeader {
-  animation: string
-}
-const HomepageHeader = ({ animation }: IHeader) => {
+const HomepageHeader = () => {
   return (
     <MainGrid>
       <Container>
@@ -20,32 +13,20 @@ const HomepageHeader = ({ animation }: IHeader) => {
             <span>development</span>
           </h1>
         </Col>
+
         <ColAnim>
           <BricksWrapper>
-            <Circle
-              src={circle1}
-              alt="Circle"
-              delay="0s"
-              animation={animation}
-            />
-            <Circle
-              src={circle2}
-              alt="Circle"
-              delay="0.4s"
-              animation={animation}
-            />
-            <Circle
-              src={circle3}
-              alt="Circle"
-              delay="0.8s"
-              animation={animation}
-            />
-            <Circle
-              src={circle4}
-              alt="Circle"
-              delay="1.2s"
-              animation={animation}
-            />
+            <Brick height={"10%"} delay={"0s"} />
+            <Brick height={"20%"} delay={"0.2s"} />
+            <Brick height={"40%"} delay={"0.4s"} />
+            <Brick height={"60%"} delay={"0.6s"} />
+            <Brick height={"80%"} delay={"0.8s"} />
+            <Brick height={"90%"} delay={"1s"} />
+            <Brick height={"80%"} delay={"1.2s"} />
+            <Brick height={"60%"} delay={"1.4s"} />
+            <Brick height={"40%"} delay={"1.6s"} />
+            <Brick height={"20%"} delay={"1.8s"} />
+            <Brick height={"10%"} delay={"2s"} />
           </BricksWrapper>
         </ColAnim>
       </Container>
@@ -95,56 +76,43 @@ const Col = styled.div`
 const ColAnim = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 0 2px;
   height: 60vw;
   width: 80%;
   margin: 0 auto;
   margin-bottom: 5rem;
+  animation: projectsHeader 10s ease infinite;
   @media (min-width: 1024px) {
     height: 50rem;
     margin-bottom: 0;
-    width: 50%;
+    width: 40%;
   }
 `
 
-interface IRow {
-  delay: string
-}
-const Row = styled.img<IRow>`
-  animation: floatMobile 10s ease infinite alternate ${props => props.delay};
-
-  opacity: 0;
-  @media (min-width: 768px) {
-    animation: float 12s ease infinite alternate ${props => props.delay};
-  }
-`
 const BricksWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  margin: 0 auto 24px;
+  height: 50%;
+  margin: 0 auto;
   position: relative;
   perspective: 1000px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-`
-interface ICircle {
-  delay: string
-  animation: string
-}
-const Circle = styled.img<ICircle>`
-  position: absolute;
-  transform: scale(0);
-  transition: all 2s ease;
-  opacity: 0;
-  top: 0%;
-  left: 0%;
-  transform-origin: center center;
-  transform-style: preserve-3d;
-  animation: ${props => props.animation} 10s ease-in infinite
-    ${props => props.delay};
-  &::selection {
-    color: ${theme.accent};
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
   }
+`
+
+interface IBrick {
+  height: string
+  delay: string
+}
+const Brick = styled.div<IBrick>`
+  width: 8px;
+  height: ${props => props.height};
+  border-radius: 100px;
+  background: ${theme.background.light};
+  transform: scaleY(0.3);
+  animation: growLine 2.4s ease-in infinite alternate ${props => props.delay};
 `
