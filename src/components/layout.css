@@ -196,17 +196,17 @@ li::selection {
   }
   p {
     font-size: 16px;
-    line-height: 32px;
+    line-height: 28px;
   }
 
   .small {
     font-size: 14px;
-    line-height: 30px;
+    line-height: 26px;
   }
 
   .legal {
     font-size: 12px;
-    line-height: 28px;
+    line-height: 24px;
   }
 }
 
@@ -408,6 +408,19 @@ li::selection {
   }
   100% {
     transform: scaleY(0.3);
-    background: #fafafc;
+    background: #e9c255;
+  }
+}
+
+@keyframes projectsHeader {
+  0% {
+    transform: translate3d(0px, -20px, 0);
+  }
+  50% {
+    transform: translate3d(0px, 20px, 0px);
+  }
+
+  100% {
+    transform: translate3d(0px, -20px, 0);
   }
 }

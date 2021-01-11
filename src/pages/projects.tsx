@@ -28,7 +28,7 @@ const projectsGridData = [
 const Projects = () => (
   <Layout activeLink="projects">
     <SEO title="Projects" />
-    <ProjectsHeader title="Projects" />
+    <ProjectsHeader title="Projects" animation="rotateY" />
     <ProjectsGrid data={projectsGridData} noButton />
     <ContactBanner nobackground primaryBtn />
   </Layout>

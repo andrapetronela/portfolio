@@ -28,22 +28,26 @@ const TweenStyled = styled.div`
     top: 0;
     left: 60px;
     transition: all 1s ease;
+    width: 4rem;
     transform: scale(0);
     opacity: 0;
   }
 
   .text {
     left: -400px;
+    width: 15rem;
     transform: scale(0);
   }
   .anim {
     left: 320px;
+    width: 10rem;
     transform: scale(0);
   }
 
   .hello {
     top: 120%;
     left: 100px;
+    width: 12rem;
   }
 `
 
@@ -72,7 +76,7 @@ const Step5 = () => (
         {progress => (
           <Tween
             to={{
-              top: "30%",
+              top: "20%",
               left: "60px",
               transform: "scale(1)",
               opacity: "1",
@@ -89,7 +93,8 @@ const Step5 = () => (
         {progress => (
           <Tween
             to={{
-              top: "30%",
+              top: "15%",
+              left: "200px",
               transform: "scale(1)",
               opacity: "1",
             }}
@@ -105,7 +110,7 @@ const Step5 = () => (
         {progress => (
           <Tween
             to={{
-              top: "56%",
+              top: "37%",
               transform: "scale(1)",
               opacity: "1",
             }}
@@ -119,14 +124,11 @@ const Step5 = () => (
       </Scene>
     </Controller>
     <Text>
-      {" "}
       <h5>Development</h5>
       <p>
-        Either you need a <b>website</b> for your business, or you want to give
-        your old website a <b>modern feeling</b>, the first step in the process
-        should be understanding the <b>problem</b>. From this point, we can find{" "}
-        <b>custom solutions</b> to ensure your users will get <b>the best</b>{" "}
-        out of your products.
+        Once the design has passed the usability test, we can start developing
+        the website, keeping the user experience as a top reference for all the
+        decisions made during the process.
       </p>
     </Text>
   </TweenStyled>

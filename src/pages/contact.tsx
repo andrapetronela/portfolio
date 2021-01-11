@@ -12,7 +12,7 @@ const Contact = () => (
   <Layout activeLink="contact">
     <SEO title="Contact" />
     <AboutHeader title="Contact" animation="rotateX" />
-    <ContactBanner nobackground primaryBtn contact />
+    <ContactBanner nobackground primaryBtn />
   </Layout>
 )
 

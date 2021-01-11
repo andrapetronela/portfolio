@@ -42,9 +42,35 @@ interface Project {
   tools?: string
 }
 
-const tabs = [{ heading: "Web development" }, { heading: "Web design" }]
+const tabs = [{ heading: "Web design" }, { heading: "Web development" }]
 
 const section = [
+  [
+    {
+      heading: "Secondlife",
+      gridImages: [img3a, img2, img3],
+      description:
+        "Mobile marketplace concept that allows its users to sell, buy and swap clothing items and accessories. Stylish and moderate color palette is working in harmonic composition with the text, creating a solid visual hierarchy that allow for effective scanning and skimming.",
+      designMain: img1,
+      tools: <p className="legal">Adobe XD, Photoshop, Illustrator</p>,
+    },
+    {
+      heading: "Maynooth",
+      gridImages: [furniture04, furniture02, furniture03],
+      description:
+        "Interior and furniture store concept - minimalistic and airy layout, prominent photo content are supported with beautifully integrated typography and build up the strong visual hierarchy. ",
+      designMain: furniture03a,
+      tools: <p className="legal">Adobe XD, Illustrator</p>,
+    },
+    {
+      heading: "Mortgage calculator",
+      gridImages: [calc03a, calc02, calc03],
+      description:
+        "Mortgage calculator concept - will help users determine the monthly payments on a loan. The calculator idea can be used for mortgage, insurance, auto, or any other fixed loan types.",
+      designMain: calc01,
+      tools: <p className="legal">Adobe XD, Illustrator</p>,
+    },
+  ],
   [
     {
       heading: "White and Co",
@@ -81,31 +107,6 @@ const section = [
       mainImage: img7,
       description:
         "Building front end components following wireframes. Styling components according to design. ",
-    },
-  ],
-  [
-    {
-      heading: "Secondlife",
-      gridImages: [img3a, img2, img3],
-      description:
-        "Mobile marketplace concept that allows its users to sell, buy and swap clothing items and accessories.",
-      designMain: img1,
-      tools: <p className="legal">Adobe XD, Photoshop, Illustrator</p>,
-    },
-    {
-      heading: "Maynooth",
-      gridImages: [furniture04, furniture02, furniture03],
-      description: "Maynooth is a furniture shop concept ",
-      designMain: furniture03a,
-      tools: <p className="legal">Adobe XD, Illustrator</p>,
-    },
-    {
-      heading: "Mortgage calculator",
-      gridImages: [calc03a, calc02, calc03],
-      description:
-        "Mortgage calculator concept - provides visual analysis of a mortgage cost using a modern graph. ",
-      designMain: calc01,
-      tools: <p className="legal">Adobe XD, Illustrator</p>,
     },
   ],
 ]

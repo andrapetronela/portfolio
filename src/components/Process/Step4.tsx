@@ -22,10 +22,9 @@ const TweenStyled = styled.div`
 
   .letter {
     position: absolute;
-    top: 40%;
-    left: 0%;
+    top: 20%;
+    left: -200px;
     width: 0px;
-    height: 0px;
     transition: all 1s ease;
   }
 `
@@ -39,8 +38,8 @@ const Step4 = () => (
         {progress => (
           <Tween
             to={{
-              width: "32%",
-              height: "100px",
+              width: "20%",
+              left: "10%",
             }}
             ease="Strong.easeOut"
             totalProgress={progress}
@@ -53,13 +52,11 @@ const Step4 = () => (
     </Controller>
     <Text>
       {" "}
-      <h5>Review</h5>
+      <h5>Review & evaluate</h5>
       <p>
-        Either you need a <b>website</b> for your business, or you want to give
-        your old website a <b>modern feeling</b>, the first step in the process
-        should be understanding the <b>problem</b>. From this point, we can find{" "}
-        <b>custom solutions</b> to ensure your users will get <b>the best</b>{" "}
-        out of your products.
+        Evaluating and refining the design based on the feedback received from
+        user tests and client review is an important step in the process of
+        generating a human-centered product.
       </p>
     </Text>
   </TweenStyled>

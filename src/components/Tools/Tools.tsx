@@ -66,6 +66,7 @@ const Tools = ({ isVisible }: ITools) => {
               <p>
                 <b>Git</b>hub
               </p>
+              <p>Drupal</p>
             </Col>
           </Container>
         </Inner>
@@ -77,7 +78,10 @@ const Tools = ({ isVisible }: ITools) => {
 export default Tools
 
 const Outer = styled.section`
-  padding: 10rem 0 5rem;
+  padding: 5rem 0;
+  @media (min-width: 768px) {
+    padding: 10rem 0 5rem;
+  }
 `
 
 const Inner = styled.div`

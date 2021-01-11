@@ -28,9 +28,9 @@ const TweenStyled = styled.div`
     height: 20px;
     position: relative;
     transition: all 0.5s ease;
-    animation: floatProcessSquareMobile 8s ease-in-out forwards infinite;
+    animation: floatProcessSquareMobile 12s ease-in-out forwards infinite;
     @media (min-width: 768px) {
-      animation: floatProcessSquare 8s ease-in-out forwards infinite;
+      animation: floatProcessSquare 12s ease-in-out forwards infinite;
     }
   }
   .square-1,
@@ -39,16 +39,16 @@ const TweenStyled = styled.div`
     height: 20px;
     position: relative;
     transition: all 0.5s ease;
-    animation: floatProcessSquareMobile 6s ease-in-out forwards infinite 0.5s;
+    animation: floatProcessSquareMobile 12s ease-in-out forwards infinite 0.5s;
     @media (min-width: 768px) {
-      animation: floatProcessSquare 6s ease-in-out forwards infinite 0.5s;
+      animation: floatProcessSquare 12s ease-in-out forwards infinite 0.5s;
     }
   }
 
   .square-2 {
-    animation: floatProcessSquareMobile 10s ease-in-out forwards infinite 1s;
+    animation: floatProcessSquareMobile 12s ease-in-out forwards infinite 1s;
     @media (min-width: 768px) {
-      animation: floatProcessSquare 10s ease-in-out forwards infinite 1s;
+      animation: floatProcessSquare 12s ease-in-out forwards infinite 1s;
     }
   }
 `
@@ -80,13 +80,12 @@ const Step1 = () => (
     </Controller>
     <Text>
       {" "}
-      <h5>Identify the problem</h5>
+      <h5>Learn about your users</h5>
       <p>
-        Either you need a <b>website</b> for your business, or you want to give
-        your old website a <b>modern feeling</b>, the first step in the process
-        should be understanding the <b>problem</b> your users are facing. Now we
-        can find <b>custom solutions</b> to ensure your users will get{" "}
-        <b>the best</b> user experience.
+        When starting to work on a new project, we need to understand more about
+        your brand, but most importantly, about your users. The process of
+        defining the pain points and the needs of your users is crucial for
+        designing a human-centered solution.
       </p>
     </Text>
   </TweenStyled>

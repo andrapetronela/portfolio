@@ -34,7 +34,7 @@ const projectsGridData = [
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <HomepageHeader animation="rotateY" />
+    <HomepageHeader />
     <TrackVisibility offset={400}>
       <Hello />
     </TrackVisibility>

@@ -31,7 +31,7 @@ const projectsGridData = [
 const AboutPage = () => (
   <Layout activeLink="about">
     <SEO title="About" />
-    <AboutHeader title="About" animation="rotateY" />
+    <AboutHeader title="About" animation="rotateX" />
     <DescAbout />
     <DescPassions />
     <HpGridProjects data={projectsGridData} />

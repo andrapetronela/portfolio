@@ -24,14 +24,14 @@ const TweenStyled = styled.div`
   .letter {
     position: absolute;
     top: 100%;
-    left: 30px;
+    left: -300px;
     opacity: 0;
     transition: all 1s ease;
-    width: 250px;
+    width: 200px;
   }
 
   .mac {
-    left: 30px;
+    left: 300px;
     top: 0;
   }
 `
@@ -41,11 +41,11 @@ const Step7 = () => (
     <div id="launch-anim" />
 
     <Controller>
-      <Scene triggerElement="#launch-anim" duration={400} offset={100}>
+      <Scene triggerElement="#launch-anim" duration={200} offset={100}>
         {progress => (
           <Tween
             to={{
-              top: "20%",
+              top: "0%",
               left: "60px",
               opacity: "1",
             }}
@@ -57,11 +57,11 @@ const Step7 = () => (
           </Tween>
         )}
       </Scene>
-      <Scene triggerElement="#launch-anim" duration={400} offset={100}>
+      <Scene triggerElement="#launch-anim" duration={200} offset={100}>
         {progress => (
           <Tween
             to={{
-              top: "24%",
+              top: "4%",
               left: "60px",
               opacity: "1",
             }}
@@ -78,11 +78,9 @@ const Step7 = () => (
       {" "}
       <h5>Lauch</h5>
       <p>
-        Either you need a <b>website</b> for your business, or you want to give
-        your old website a <b>modern feeling</b>, the first step in the process
-        should be understanding the <b>problem</b>. From this point, we can find{" "}
-        <b>custom solutions</b> to ensure your users will get <b>the best</b>{" "}
-        out of your products.
+        Now it's time for your users to meet the new product. Other tests will
+        be run at this stage, to ensure everything is working as exected and the
+        product offers the best user experience.
       </p>
     </Text>
   </TweenStyled>
