@@ -3,6 +3,7 @@ import styled from "styled-components"
 import SmallGrid from "../../shared/SmallGrid"
 import theme from "../../shared/theme"
 import Button from "../Button"
+import close from "../../images/close.svg"
 import img1 from "../../images/projects/design/secondlife01.jpg"
 import img2 from "../../images/projects/design/secondlife02.jpg"
 import img3 from "../../images/projects/design/secondlife03.jpg"
@@ -24,6 +25,17 @@ import furniture02 from "../../images/projects/design/furniture02.jpg"
 import furniture03 from "../../images/projects/design/furniture03.jpg"
 import furniture04 from "../../images/projects/design/furniture04.jpg"
 
+import inside01 from "../../images/projects/design/inside02.jpg"
+import inside02 from "../../images/projects/design/inside01.jpg"
+import inside03 from "../../images/projects/design/inside03.jpg"
+import inside04 from "../../images/projects/design/inside04.jpg"
+import inside05 from "../../images/projects/design/inside05.jpg"
+import inside06 from "../../images/projects/design/inside06.jpg"
+import inside07 from "../../images/projects/design/inside07.jpg"
+import inside08 from "../../images/projects/design/inside08.jpg"
+import inside09 from "../../images/projects/design/inside09.jpg"
+import inside10 from "../../images/projects/design/inside10.jpg"
+
 interface Item {
   img: string
   alt: string
@@ -40,6 +52,7 @@ interface Project {
   link?: string
   designMain?: string
   tools?: string
+  extraImages?: Array<string>
 }
 
 const tabs = [{ heading: "Web design" }, { heading: "Web development" }]
@@ -61,6 +74,15 @@ const section = [
         "Interior and furniture store concept - minimalistic and airy layout, prominent photo content are supported with beautifully integrated typography and build up the strong visual hierarchy. ",
       designMain: furniture03a,
       tools: <p className="legal">Adobe XD, Illustrator</p>,
+    },
+    {
+      heading: "Inside",
+      gridImages: [inside07, inside03, inside04],
+      description:
+        "Inside is a legendary shopping landmark concept featuring an array of luxury contemporary and haute couture products. White space, dot detail, typography and the colours used brings elegance, modernism and luxury to the brand.",
+      designMain: inside05,
+      tools: <p className="legal">Adobe XD, Illustrator</p>,
+      extraImages: [inside09, inside01, inside08],
     },
     {
       heading: "Mortgage calculator",
@@ -110,8 +132,12 @@ const section = [
     },
   ],
 ]
+
+let modalImgSrc = ""
 const ProjectsGrid = ({ data, noButton }: HpGrid) => {
   const [category, setCategory] = useState(0)
+  const [modalOpen, toggleModal] = useState(false)
+  // let [modalImgSrc, setModalSrc] = useState(null)
 
   return (
     <SmallGrid>
@@ -167,6 +193,18 @@ const ProjectsGrid = ({ data, noButton }: HpGrid) => {
                   </ProjectGrid>
                 )}
 
+                {item.extraImages && (
+                  <ProjectGrid>
+                    {item.extraImages.map((img: string, key: number) => {
+                      return (
+                        <figure key={key}>
+                          <img src={img} key={key} />
+                        </figure>
+                      )
+                    })}
+                  </ProjectGrid>
+                )}
+
                 {item.mainImage && (
                   <DevGrid>
                     <DevImage>
@@ -190,7 +228,13 @@ const ProjectsGrid = ({ data, noButton }: HpGrid) => {
           {data &&
             data.map((item, key) => {
               return (
-                <figure key={key}>
+                <figure
+                  key={key}
+                  onClick={() => {
+                    modalImgSrc = item.img
+                    toggleModal(true)
+                  }}
+                >
                   <img src={item.img} alt={item.alt} />
                 </figure>
               )
@@ -200,6 +244,11 @@ const ProjectsGrid = ({ data, noButton }: HpGrid) => {
         {!noButton && (
           <Button href="/projects" text="View more" marginTop="40px" />
         )}
+
+        <Modal showModal={modalOpen} onClick={() => toggleModal(false)}>
+          <Close src={close} alt="Close" />
+          {<ModalImg src={modalImgSrc} />}
+        </Modal>
       </Inner>
     </SmallGrid>
   )
@@ -465,7 +514,7 @@ const InlineLink = styled.a`
   }
 `
 const DesignMain = styled(DevImage)`
-  margin-bottom: 8rem;
+  margin-bottom: 4rem;
   @media (min-width: 768px) {
     width: 100%;
   }
@@ -476,4 +525,34 @@ const Tools = styled.div`
     line-height: 24px;
     color: #b6b5b5;
   }
+`
+
+interface IModal {
+  showModal?: boolean
+}
+
+const Modal = styled.div<IModal>`
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: ${props => (props.showModal ? "flex" : "none")};
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 10vh;
+  z-index: 999;
+`
+const Close = styled.img`
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 5rem;
+  right: 5rem;
+  cursor: pointer;
+`
+const ModalImg = styled.img`
+  height: 80vh;
 `

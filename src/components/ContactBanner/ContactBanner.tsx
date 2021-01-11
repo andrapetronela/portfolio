@@ -21,6 +21,7 @@ const ContactBanner = ({ nobackground, primaryBtn }: IContact) => {
           marginTop="10px"
           color={!primaryBtn && theme.text.second}
           colorHover={!primaryBtn && theme.text.main}
+          contact
         />
       </Inner>
     </Container>
