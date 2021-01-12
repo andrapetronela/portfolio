@@ -36,6 +36,9 @@ import inside08 from "../../images/projects/design/inside08.jpg"
 import inside09 from "../../images/projects/design/inside09.jpg"
 import inside10 from "../../images/projects/design/inside10.jpg"
 
+import previous from "../../images/previous.svg"
+import next from "../../images/next.svg"
+
 interface Item {
   img: string
   alt: string
@@ -133,12 +136,22 @@ const section = [
   ],
 ]
 
-let modalImgSrc = ""
 const ProjectsGrid = ({ data, noButton }: HpGrid) => {
   const [category, setCategory] = useState(0)
   const [modalOpen, toggleModal] = useState(false)
-  // let [modalImgSrc, setModalSrc] = useState(null)
+  let [activeImg, setActiveImg] = useState(0)
 
+  const nextSlide = () => {
+    if (activeImg < data.length - 1) {
+      setActiveImg(activeImg + 1)
+    }
+  }
+
+  const prevSlide = () => {
+    if (activeImg > 0) {
+      setActiveImg(activeImg - 1)
+    }
+  }
   return (
     <SmallGrid>
       <Inner>
@@ -231,7 +244,7 @@ const ProjectsGrid = ({ data, noButton }: HpGrid) => {
                 <figure
                   key={key}
                   onClick={() => {
-                    modalImgSrc = item.img
+                    setActiveImg(key)
                     toggleModal(true)
                   }}
                 >
@@ -246,8 +259,33 @@ const ProjectsGrid = ({ data, noButton }: HpGrid) => {
         )}
 
         <Modal showModal={modalOpen} onClick={() => toggleModal(false)}>
-          <Close src={close} alt="Close" />
-          {<ModalImg src={modalImgSrc} />}
+          <Close src={close} alt="Close" onClick={() => toggleModal(false)} />
+          <ModalImg
+            src={data[activeImg].img}
+            onClick={e => {
+              e.stopPropagation()
+            }}
+          />
+          <ArrowsContainer>
+            <Arrow
+              opacity={activeImg === 0}
+              src={previous}
+              alt="Previous"
+              onClick={e => {
+                e.stopPropagation()
+                prevSlide()
+              }}
+            />
+            <Arrow
+              opacity={activeImg === data.length - 1}
+              src={next}
+              alt="Next"
+              onClick={e => {
+                e.stopPropagation()
+                nextSlide()
+              }}
+            />
+          </ArrowsContainer>
         </Modal>
       </Inner>
     </SmallGrid>
@@ -537,14 +575,18 @@ const Modal = styled.div<IModal>`
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.7);
   display: ${props => (props.showModal ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding-top: 10vh;
   z-index: 999;
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
 `
+
 const Close = styled.img`
   position: absolute;
   width: 40px;
@@ -554,5 +596,31 @@ const Close = styled.img`
   cursor: pointer;
 `
 const ModalImg = styled.img`
-  height: 80vh;
+  max-width: 80vw;
+  max-height: 75vh;
+`
+const ArrowsContainer = styled.div`
+  position: absolute;
+  width: 80px;
+  height: 4rem;
+  margin: 0 auto;
+  top: 94%;
+  display: flex;
+  justify-content: space-between;
+
+  @media (min-width: 1024px) {
+    top: 90%;
+  }
+`
+interface IArrow {
+  opacity?: boolean
+}
+
+const Arrow = styled.img<IArrow>`
+  width: 35px;
+  height: 35px;
+  opacity: ${props => (props.opacity ? "0.5" : "1")};
+  transform: ${props => (props.opacity ? "scale(0.9)" : "none")};
+  cursor: pointer;
+  transition: all 0.3s ease;
 `
