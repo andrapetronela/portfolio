@@ -6,13 +6,13 @@ module.exports = {
     author: `Andra Strachinaru`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "G-488KF53GW7",
-        head: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: "G-488KF53GW7",
+    //     head: true,
+    //   },
+    // },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
     {

@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import MainGrid from "../../shared/MainGrid"
 import theme from "../../shared/theme"
 import Button from "../Button"
+import previous from "../../images/previous.svg"
+import next from "../../images/next.svg"
+import close from "../../images/close.svg"
 
 interface Item {
   img: string
@@ -12,6 +15,20 @@ interface HpGrid {
   data: Array<Item>
 }
 const HpGridProjects = ({ data }: HpGrid) => {
+  const [modalOpen, toggleModal] = useState(false)
+  let [activeImg, setActiveImg] = useState(0)
+
+  const nextSlide = () => {
+    if (activeImg < data.length - 1) {
+      setActiveImg(activeImg + 1)
+    }
+  }
+
+  const prevSlide = () => {
+    if (activeImg > 0) {
+      setActiveImg(activeImg - 1)
+    }
+  }
   return (
     <MainGrid>
       <Inner>
@@ -19,13 +36,49 @@ const HpGridProjects = ({ data }: HpGrid) => {
           {data &&
             data.map((item, key) => {
               return (
-                <figure key={key}>
+                <figure
+                  key={key}
+                  onClick={() => {
+                    setActiveImg(key)
+                    toggleModal(true)
+                  }}
+                >
                   <img src={item.img} alt={item.alt} />
                 </figure>
               )
             })}
         </Grid>
         <Button href="/projects" text="View more" marginTop="40px" />
+
+        <Modal showModal={modalOpen} onClick={() => toggleModal(false)}>
+          <Close src={close} alt="Close" onClick={() => toggleModal(false)} />
+          <ModalImg
+            src={data[activeImg].img}
+            onClick={e => {
+              e.stopPropagation()
+            }}
+          />
+          <ArrowsContainer>
+            <Arrow
+              opacity={activeImg === 0}
+              src={previous}
+              alt="Previous"
+              onClick={e => {
+                e.stopPropagation()
+                prevSlide()
+              }}
+            />
+            <Arrow
+              opacity={activeImg === data.length - 1}
+              src={next}
+              alt="Next"
+              onClick={e => {
+                e.stopPropagation()
+                nextSlide()
+              }}
+            />
+          </ArrowsContainer>
+        </Modal>
       </Inner>
     </MainGrid>
   )
@@ -131,4 +184,63 @@ const Grid = styled.div`
       grid-row: 3 / span 3;
     }
   }
+`
+interface IModal {
+  showModal?: boolean
+}
+
+const Modal = styled.div<IModal>`
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: ${props => (props.showModal ? "flex" : "none")};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10vh;
+  z-index: 999;
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
+`
+
+const Close = styled.img`
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 5rem;
+  right: 5rem;
+  cursor: pointer;
+`
+const ModalImg = styled.img`
+  max-width: 80vw;
+  max-height: 75vh;
+`
+const ArrowsContainer = styled.div`
+  position: absolute;
+  width: 80px;
+  height: 4rem;
+  margin: 0 auto;
+  top: 94%;
+  display: flex;
+  justify-content: space-between;
+
+  @media (min-width: 1024px) {
+    top: 90%;
+  }
+`
+interface IArrow {
+  opacity?: boolean
+}
+
+const Arrow = styled.img<IArrow>`
+  width: 35px;
+  height: 35px;
+  opacity: ${props => (props.opacity ? "0.5" : "1")};
+  transform: ${props => (props.opacity ? "scale(0.9)" : "none")};
+  cursor: pointer;
+  transition: all 0.3s ease;
 `
