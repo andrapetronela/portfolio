@@ -11,6 +11,7 @@ import PropTypes from "prop-types"
 import "./layout.css"
 import Footer from "./Footer/Footer"
 import Navigation from "./Navigation/Navigation"
+import CookieBar from "../shared/CookieBar/CookieBar"
 
 const Layout = ({ children, activeLink }) => {
   return (
@@ -22,6 +23,7 @@ const Layout = ({ children, activeLink }) => {
         <Navigation activeLink={activeLink} />
         <main>{children}</main>
         <Footer />
+        <CookieBar />
       </div>
     </>
   )
